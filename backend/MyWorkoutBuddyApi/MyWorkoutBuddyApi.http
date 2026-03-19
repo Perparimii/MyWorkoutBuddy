@@ -1,0 +1,6 @@
+@MyWorkoutBuddyApi_HostAddress = http://localhost:5220
+
+GET {{MyWorkoutBuddyApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
