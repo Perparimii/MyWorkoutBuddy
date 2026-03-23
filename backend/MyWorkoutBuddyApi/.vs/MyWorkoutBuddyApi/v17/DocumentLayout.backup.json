@@ -1,10 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\perpa\\MyWorkoutBuddy\\MyWorkoutBuddyApi\\",
+  "WorkspaceRootPath": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|c:\\users\\perpa\\myworkoutbuddy\\myworkoutbuddyapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|c:\\users\\perpa\\myworkoutbuddy\\backend\\myworkoutbuddyapi\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|solutionrelative:controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|c:\\users\\perpa\\myworkoutbuddy\\backend\\myworkoutbuddyapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|c:\\users\\perpa\\myworkoutbuddy\\backend\\myworkoutbuddyapi\\models\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|solutionrelative:models\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|c:\\users\\perpa\\myworkoutbuddy\\backend\\myworkoutbuddyapi\\models\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|solutionrelative:models\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|c:\\users\\perpa\\myworkoutbuddy\\backend\\myworkoutbuddyapi\\models\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|solutionrelative:models\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,17 +30,69 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RegisterDto.cs",
+              "DocumentMoniker": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Models\\DTOs\\RegisterDto.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\RegisterDto.cs",
+              "ToolTip": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Models\\DTOs\\RegisterDto.cs",
+              "RelativeToolTip": "Models\\DTOs\\RegisterDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T16:06:37.04Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LoginDto.cs",
+              "DocumentMoniker": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Models\\DTOs\\LoginDto.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\LoginDto.cs",
+              "ToolTip": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Models\\DTOs\\LoginDto.cs",
+              "RelativeToolTip": "Models\\DTOs\\LoginDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T15:57:29.616Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Models\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "Models\\Entities\\User.cs",
+              "ToolTip": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Models\\Entities\\User.cs",
+              "RelativeToolTip": "Models\\Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T15:56:34.968Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AuthenticationController.cs",
+              "DocumentMoniker": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Controllers\\AuthenticationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthenticationController.cs",
+              "ToolTip": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Controllers\\AuthenticationController.cs",
+              "RelativeToolTip": "Controllers\\AuthenticationController.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAYwEcAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T15:48:58.786Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\perpa\\MyWorkoutBuddy\\MyWorkoutBuddyApi\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\perpa\\MyWorkoutBuddy\\MyWorkoutBuddyApi\\Program.cs",
+              "ToolTip": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAiwC0AAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-19T13:19:16.901Z",
               "EditorCaption": ""
