@@ -2,11 +2,10 @@
 
 namespace MyWorkoutBuddyApi.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class PlansController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        
     }
 }

@@ -8,8 +8,8 @@ namespace MyWorkoutBuddyApi.Data
         public WorkoutDbContext(DbContextOptions<WorkoutDbContext> options) : base(options)
         {
         }
-
         public DbSet<User> Users { get; set; }
+        public DbSet<WorkoutPlan> Plans { get; set; }
 
     }
 }
