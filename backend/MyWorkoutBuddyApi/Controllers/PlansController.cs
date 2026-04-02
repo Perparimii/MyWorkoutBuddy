@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using MyWorkoutBuddyApi.Data;
 using MyWorkoutBuddyApi.Models.DTOs;
 using MyWorkoutBuddyApi.Models.Entities;
+using MyWorkoutBuddyApi.Services;
+using System.Numerics;
 
 namespace MyWorkoutBuddyApi.Controllers
 {
@@ -11,27 +13,20 @@ namespace MyWorkoutBuddyApi.Controllers
     public class PlansController : Controller
     {
        
-        private readonly WorkoutDbContext _context;
-        public PlansController(WorkoutDbContext workoutDbContext)
+        private readonly IPlanService _planService;
+        public PlansController(IPlanService planService)
         {
-            _context = workoutDbContext;
+            _planService = planService;
         }
 
 
         [HttpPost]
-        public async Task<ActionResult<PlanDto>> CreatePlan(PlanDto newPlan)
+        public async Task<ActionResult<WorkoutPlan>> CreatePlan(PlanDto newPlan)
         {
-            var plan = new WorkoutPlan
-            {
-                Name = newPlan.Name,
-                Description = newPlan.Description,
-                Format = newPlan.Format
-            };
 
-            _context.Plans.Add(plan);
-            await _context.SaveChangesAsync();
+            var createdPlan = await _planService.CreatePlanAsync(newPlan);
 
-            return CreatedAtAction(nameof(GetPlanById), newPlan);
+            return CreatedAtAction(nameof(GetPlanById), new { id = createdPlan.Id }, newPlan);
 
         }
 
@@ -40,9 +35,9 @@ namespace MyWorkoutBuddyApi.Controllers
         public async Task<ActionResult<IEnumerable<PlanDto>>> GetPlans()
         {
 
-            var plans = await _context.Plans.ToListAsync();
+            var plans = await _planService.GetPlansAsync();
 
-            if (plans == null || plans.Count == 0)
+            if (plans == null)
             {
                 return BadRequest("There are currently 0 available plans");
             }
@@ -56,7 +51,7 @@ namespace MyWorkoutBuddyApi.Controllers
         public async Task<ActionResult<IEnumerable<PlanDto>>> GetPlanById(int id)
         {
 
-            var plan = await _context.Plans.FindAsync(id);
+            var plan = await _planService.GetPlanByIdAsync(id);
 
             if (plan == null)
             {
@@ -70,29 +65,12 @@ namespace MyWorkoutBuddyApi.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<PlanDto>> UpdatePlan(int id, PlanDto updatedPlan)
         {
-            var plan = await _context.Plans.FindAsync(id);
+            var plan = await _planService.UpdatePlanAsync( id, updatedPlan);
 
             if (plan == null)
             {
                 return NotFound($"Workout plan with Id {id} doesn't exist");
             }
-
-            if (!string.IsNullOrWhiteSpace(updatedPlan.Name))
-            {
-                plan.Name = updatedPlan.Name;
-            }
-
-            if (!string.IsNullOrWhiteSpace(updatedPlan.Description))
-            {
-                plan.Description = updatedPlan.Description;
-            }
-
-            if (!string.IsNullOrWhiteSpace(updatedPlan.Format))
-            {
-                plan.Format = updatedPlan.Format;
-            }
-
-            await _context.SaveChangesAsync();
 
             return Ok();
 
@@ -100,17 +78,15 @@ namespace MyWorkoutBuddyApi.Controllers
 
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<PlanDto>> DeletePlan(int id)
+        public async Task<ActionResult<PlanDto>> DeletePlan(int id, PlanDto deltedPlan)
         {
-            var plan = await _context.Plans.FindAsync(id);
+            var plan = await _planService.DeletePlanAsync(id, deltedPlan);
 
             if(plan == null)
             {
                 return NotFound($"Workout plan with Id {id} doesn't exist");
             }
 
-            _context.Plans.Remove(plan);
-            await _context.SaveChangesAsync();
 
             return Ok();
         }
