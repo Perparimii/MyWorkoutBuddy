@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyWorkoutBuddyApi.Data;
 
@@ -11,9 +12,11 @@ using MyWorkoutBuddyApi.Data;
 namespace MyWorkoutBuddyApi.Migrations
 {
     [DbContext(typeof(WorkoutDbContext))]
-    partial class WorkoutDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260416121843_CreatedExerciseEntityAndRelationsWithWorkouts")]
+    partial class CreatedExerciseEntityAndRelationsWithWorkouts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -63,7 +66,7 @@ namespace MyWorkoutBuddyApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Exercises");
+                    b.ToTable("Exercise");
                 });
 
             modelBuilder.Entity("MyWorkoutBuddyApi.Models.Entities.User", b =>

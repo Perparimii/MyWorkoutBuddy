@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyWorkoutBuddyApi.Data;
 
@@ -11,9 +12,11 @@ using MyWorkoutBuddyApi.Data;
 namespace MyWorkoutBuddyApi.Migrations
 {
     [DbContext(typeof(WorkoutDbContext))]
-    partial class WorkoutDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260416120201_AddedPlanToUser")]
+    partial class AddedPlanToUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,50 +24,6 @@ namespace MyWorkoutBuddyApi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("ExerciseWorkout", b =>
-                {
-                    b.Property<int>("ExercisesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("WorkoutsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ExercisesId", "WorkoutsId");
-
-                    b.HasIndex("WorkoutsId");
-
-                    b.ToTable("ExerciseWorkout");
-                });
-
-            modelBuilder.Entity("MyWorkoutBuddyApi.Models.Entities.Exercise", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("MaxReps")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MinReps")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("WarmupSets")
-                        .HasColumnType("int");
-
-                    b.Property<int>("WorkingSets")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Exercises");
-                });
 
             modelBuilder.Entity("MyWorkoutBuddyApi.Models.Entities.User", b =>
                 {
@@ -150,21 +109,6 @@ namespace MyWorkoutBuddyApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Plans");
-                });
-
-            modelBuilder.Entity("ExerciseWorkout", b =>
-                {
-                    b.HasOne("MyWorkoutBuddyApi.Models.Entities.Exercise", null)
-                        .WithMany()
-                        .HasForeignKey("ExercisesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MyWorkoutBuddyApi.Models.Entities.Workout", null)
-                        .WithMany()
-                        .HasForeignKey("WorkoutsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("MyWorkoutBuddyApi.Models.Entities.User", b =>

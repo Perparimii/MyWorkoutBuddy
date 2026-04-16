@@ -7,20 +7,36 @@
       "RelativeMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|solutionrelative:data\\workoutdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|c:\\users\\perpa\\myworkoutbuddy\\backend\\myworkoutbuddyapi\\models\\entities\\workoutplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|solutionrelative:models\\entities\\workoutplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|c:\\users\\perpa\\myworkoutbuddy\\backend\\myworkoutbuddyapi\\models\\entities\\exercise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|solutionrelative:models\\entities\\exercise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|c:\\users\\perpa\\myworkoutbuddy\\backend\\myworkoutbuddyapi\\models\\entities\\workout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|solutionrelative:models\\entities\\workout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Migrations\\20260416114011_CreatedWorkoutEntityAndPlanRelations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20260416114011_CreatedWorkoutEntityAndPlanRelations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|c:\\users\\perpa\\myworkoutbuddy\\backend\\myworkoutbuddyapi\\models\\entities\\workoutplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|solutionrelative:models\\entities\\workoutplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|c:\\users\\perpa\\myworkoutbuddy\\backend\\myworkoutbuddyapi\\models\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|solutionrelative:models\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|c:\\users\\perpa\\myworkoutbuddy\\backend\\myworkoutbuddyapi\\models\\dtos\\workoutdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|solutionrelative:models\\dtos\\workoutdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|c:\\users\\perpa\\myworkoutbuddy\\backend\\myworkoutbuddyapi\\models\\dtos\\plandto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|solutionrelative:models\\dtos\\plandto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|c:\\users\\perpa\\myworkoutbuddy\\backend\\myworkoutbuddyapi\\models\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|solutionrelative:models\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|c:\\users\\perpa\\myworkoutbuddy\\backend\\myworkoutbuddyapi\\models\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|solutionrelative:models\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{541018D5-4770-4165-9897-387A92DEF820}|MyWorkoutBuddyApi.csproj|c:\\users\\perpa\\myworkoutbuddy\\backend\\myworkoutbuddyapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,30 +50,82 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "20260416114011_CreatedWorkoutEntityAndPlanRelations.cs",
-              "DocumentMoniker": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Migrations\\20260416114011_CreatedWorkoutEntityAndPlanRelations.cs",
-              "RelativeDocumentMoniker": "Migrations\\20260416114011_CreatedWorkoutEntityAndPlanRelations.cs",
-              "ToolTip": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Migrations\\20260416114011_CreatedWorkoutEntityAndPlanRelations.cs",
-              "RelativeToolTip": "Migrations\\20260416114011_CreatedWorkoutEntityAndPlanRelations.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Exercise.cs",
+              "DocumentMoniker": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Models\\Entities\\Exercise.cs",
+              "RelativeDocumentMoniker": "Models\\Entities\\Exercise.cs",
+              "ToolTip": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Models\\Entities\\Exercise.cs",
+              "RelativeToolTip": "Models\\Entities\\Exercise.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T11:40:11.721Z",
+              "WhenOpened": "2026-04-16T12:08:23.301Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
+              "Title": "RegisterDto.cs",
+              "DocumentMoniker": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Models\\DTOs\\RegisterDto.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\RegisterDto.cs",
+              "ToolTip": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Models\\DTOs\\RegisterDto.cs",
+              "RelativeToolTip": "Models\\DTOs\\RegisterDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T11:55:47.015Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PlanDto.cs",
+              "DocumentMoniker": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Models\\DTOs\\PlanDto.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\PlanDto.cs",
+              "ToolTip": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Models\\DTOs\\PlanDto.cs",
+              "RelativeToolTip": "Models\\DTOs\\PlanDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T11:55:44.999Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LoginDto.cs",
+              "DocumentMoniker": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Models\\DTOs\\LoginDto.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\LoginDto.cs",
+              "ToolTip": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Models\\DTOs\\LoginDto.cs",
+              "RelativeToolTip": "Models\\DTOs\\LoginDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T11:55:42.836Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "WorkoutDto.cs",
+              "DocumentMoniker": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Models\\DTOs\\WorkoutDto.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\WorkoutDto.cs",
+              "ToolTip": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Models\\DTOs\\WorkoutDto.cs",
+              "RelativeToolTip": "Models\\DTOs\\WorkoutDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T11:55:40.639Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "WorkoutPlan.cs",
               "DocumentMoniker": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Models\\Entities\\WorkoutPlan.cs",
               "RelativeDocumentMoniker": "Models\\Entities\\WorkoutPlan.cs",
               "ToolTip": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Models\\Entities\\WorkoutPlan.cs",
               "RelativeToolTip": "Models\\Entities\\WorkoutPlan.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-16T11:38:24.239Z",
               "EditorCaption": ""
@@ -70,7 +138,7 @@
               "RelativeDocumentMoniker": "Models\\Entities\\User.cs",
               "ToolTip": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Models\\Entities\\User.cs",
               "RelativeToolTip": "Models\\Entities\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-16T11:32:33.249Z",
               "EditorCaption": ""
@@ -83,22 +151,9 @@
               "RelativeDocumentMoniker": "Models\\Entities\\Workout.cs",
               "ToolTip": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Models\\Entities\\Workout.cs",
               "RelativeToolTip": "Models\\Entities\\Workout.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-16T11:32:28.029Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAiwBAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T13:19:16.901Z",
               "EditorCaption": ""
             },
             {
@@ -109,9 +164,22 @@
               "RelativeDocumentMoniker": "Data\\WorkoutDbContext.cs",
               "ToolTip": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Data\\WorkoutDbContext.cs",
               "RelativeToolTip": "Data\\WorkoutDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-25T14:59:03.958Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\perpa\\MyWorkoutBuddy\\backend\\MyWorkoutBuddyApi\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAiwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T13:19:16.901Z",
               "EditorCaption": ""
             }
           ]

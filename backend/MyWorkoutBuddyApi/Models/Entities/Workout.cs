@@ -8,6 +8,7 @@
         public int ExerciseNumber { get; set; }
         public int WorkoutPlanId { get; set; }
         public WorkoutPlan WorkoutPlan { get; set; }
+        public ICollection<Exercise> Exercises { get; set; } = new List<Exercise>();
 
     }
 }

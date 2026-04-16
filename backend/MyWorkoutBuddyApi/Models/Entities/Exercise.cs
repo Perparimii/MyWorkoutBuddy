@@ -1,11 +1,13 @@
 ﻿namespace MyWorkoutBuddyApi.Models.Entities
 {
-    public class WorkoutPlan
+    public class Exercise
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
-        public string Format { get; set; }
+        public int WarmupSets { get; set; }
+        public int WorkingSets {  get; set; }
+        public int MinReps {  get; set; }
+        public int MaxReps { get; set; }
         public ICollection<Workout> Workouts { get; set; } = new List<Workout>();
     }
 }
