@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyWorkoutBuddyApi.Data;
 
@@ -10,9 +11,11 @@ using MyWorkoutBuddyApi.Data;
 namespace MyWorkoutBuddyApi.Migrations
 {
     [DbContext(typeof(WorkoutDbContext))]
-    partial class WorkoutDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260416114011_CreatedWorkoutEntityAndPlanRelations")]
+    partial class CreatedWorkoutEntityAndPlanRelations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -71,7 +74,7 @@ namespace MyWorkoutBuddyApi.Migrations
 
                     b.HasIndex("WorkoutPlanId");
 
-                    b.ToTable("Workouts");
+                    b.ToTable("Workout");
                 });
 
             modelBuilder.Entity("MyWorkoutBuddyApi.Models.Entities.WorkoutPlan", b =>
