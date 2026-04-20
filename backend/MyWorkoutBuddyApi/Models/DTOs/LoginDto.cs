@@ -13,5 +13,6 @@ namespace MyWorkoutBuddyApi.Models.DTOs
 
         [Required]
         public string Password { get; set; } = string.Empty;
+        public string Role {  get; set; } = "User";
     }
 }
