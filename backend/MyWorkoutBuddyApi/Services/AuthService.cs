@@ -17,33 +17,31 @@ namespace MyWorkoutBuddyApi.Services
         {
             _context = context;
         }
-        public async Task<LoginDto> LoginAsync(LoginDto loginDto)
+        public async Task<string?> LoginAsync(LoginDto loginDto)
         {
-
             var user = await _context.Users
-            .FirstOrDefaultAsync(u => u.UserName == loginDto.UserName);
+                .FirstOrDefaultAsync(u => u.UserName == loginDto.UserName);
 
             if (user == null || !BCrypt.Net.BCrypt.Verify(loginDto.Password, user.Password))
-            {
-                return null;
+            { 
+                return null; 
             }
-
+                
             var claims = new[]
-             {
-                  new Claim(ClaimTypes.Name, loginDto.UserName),
-                  new Claim(ClaimTypes.Role, loginDto.Role)
+            {
+                 new Claim(ClaimTypes.Name, user.UserName),
+                 new Claim(ClaimTypes.Role, user.Role)
              };
 
-            var key = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes("THIS_IS_MY_SECRET_KEY_FOR_WORKOUTS_123"));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("THIS_IS_MY_SECRET_KEY_FOR_WORKOUTS_123"));
 
             var token = new JwtSecurityToken(
                 claims: claims,
-                expires: DateTime.Now.AddHours(1),
+                expires: DateTime.UtcNow.AddHours(1),
                 signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256)
             );
 
-            return null;
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
 

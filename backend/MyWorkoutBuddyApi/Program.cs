@@ -14,7 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IPlanService, PlanService>();
-
+builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddDbContext<WorkoutDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MyWorkoutDatabase")));
 

@@ -25,16 +25,28 @@ public class AuthController : ControllerBase
     [HttpPost("register")]
     public async Task<ActionResult> Register(RegisterDto request)
     {
-        return Ok();
+        var result = await _authService.RegisterAsync(request);
+
+        if(result == null)
+        {
+            return BadRequest("Email or username already taken!");
+        }
+
+        return Ok(result);
     }
     
 
     [HttpPost("login")]
-    public async Task<ActionResult> Login(LoginDto dto)
+    public async Task<ActionResult> LogIn(LoginDto dto)
     {
+        var result = await _authService.LoginAsync(dto);
 
+        if(result == null)
+        {
+            return Unauthorized("Invalid credentials!");
+        }
 
-        return Ok();
+        return Ok(new{ result });
 }
 }
 
