@@ -30,7 +30,7 @@ namespace MyWorkoutBuddyApi.Services
         }
 
 
-        public async Task<IEnumerable<PlanDto>> GetPlanByIdAsync(int id)
+        public async Task<IEnumerable<PlanDto?>> GetPlanByIdAsync(int id)
         {
 
             var plan = await _context.Plans
@@ -45,7 +45,7 @@ namespace MyWorkoutBuddyApi.Services
         }
 
 
-        public async Task<IEnumerable<PlanDto>> GetPlansAsync()
+        public async Task<IEnumerable<PlanDto?>> GetPlansAsync()
         {
 
             var plans = await _context.Plans
@@ -61,7 +61,7 @@ namespace MyWorkoutBuddyApi.Services
         }
 
 
-        public async Task<PlanDto> UpdatePlanAsync(int id, PlanDto updatedPlan)
+        public async Task<PlanDto?> UpdatePlanAsync(int id, PlanDto updatedPlan)
         {
             var plan = await _context.Plans.FindAsync(id);
              
@@ -79,19 +79,19 @@ namespace MyWorkoutBuddyApi.Services
             return updatedPlan;
         }
 
-        public async Task<PlanDto> DeletePlanAsync(int id, PlanDto deletedPlan)
+        public async Task<bool> DeletePlanAsync(int id)
         {
             var plan = await _context.Plans.FindAsync(id);
 
             if (plan == null)
             {
-                return null;
+                return false;
             }
 
             _context.Plans.Remove(plan);
             await _context.SaveChangesAsync();
 
-            return deletedPlan;
+            return true;
         }
     }
 }

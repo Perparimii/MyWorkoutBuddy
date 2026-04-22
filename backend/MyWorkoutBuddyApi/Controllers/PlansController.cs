@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyWorkoutBuddyApi.Data;
 using MyWorkoutBuddyApi.Models.DTOs;
@@ -8,18 +9,22 @@ using System.Numerics;
 
 namespace MyWorkoutBuddyApi.Controllers
 {
+
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class PlansController : Controller
     {
-       
+
         private readonly IPlanService _planService;
-        public PlansController(IPlanService planService)
+        private readonly IAuthService _authService;
+        public PlansController(IPlanService planService, IAuthService authService)
         {
             _planService = planService;
+            _authService = authService;
         }
 
-
+        [Authorize(Roles ="Admin")]
         [HttpPost]
         public async Task<ActionResult<WorkoutPlan>> CreatePlan(PlanDto newPlan)
         {
@@ -30,7 +35,7 @@ namespace MyWorkoutBuddyApi.Controllers
 
         }
 
-
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PlanDto>>> GetPlans()
         {
@@ -65,7 +70,7 @@ namespace MyWorkoutBuddyApi.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<PlanDto>> UpdatePlan(int id, PlanDto updatedPlan)
         {
-            var plan = await _planService.UpdatePlanAsync( id, updatedPlan);
+            var plan = await _planService.UpdatePlanAsync(id, updatedPlan);
 
             if (plan == null)
             {
@@ -78,17 +83,16 @@ namespace MyWorkoutBuddyApi.Controllers
 
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<PlanDto>> DeletePlan(int id, PlanDto deltedPlan)
+        public async Task<ActionResult<PlanDto>> DeletePlan(int id)
         {
-            var plan = await _planService.DeletePlanAsync(id, deltedPlan);
+            var plan = await _planService.DeletePlanAsync(id);
 
-            if(plan == null)
+            if(plan == false)
             {
                 return NotFound($"Workout plan with Id {id} doesn't exist");
             }
 
-
-            return Ok();
+            return NoContent();
         }
     }
 
