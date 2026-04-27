@@ -13,7 +13,7 @@ namespace MyWorkoutBuddyApi.Controllers
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
-    public class PlansController : Controller
+    public class PlansController : ControllerBase
     {
 
         private readonly IPlanService _planService;

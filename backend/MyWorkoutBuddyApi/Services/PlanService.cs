@@ -32,15 +32,16 @@ namespace MyWorkoutBuddyApi.Services
 
         public async Task<IEnumerable<PlanDto?>> GetPlanByIdAsync(int id)
         {
-
-            var plan = await _context.Plans
+            // fix this later
+           
+            var plan = await _context.Plans.FindAsync(id)
              .Select(p => new PlanDto
             {
                 Name = p.Name,
                 Description = p.Description,
                 Format = p.Format
-             })
-            .ToListAsync();
+             }).ToListAsync();
+            
             return plan;
         }
 

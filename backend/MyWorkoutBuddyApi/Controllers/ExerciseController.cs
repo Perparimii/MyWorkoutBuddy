@@ -1,12 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyWorkoutBuddyApi.Services;
 
 namespace MyWorkoutBuddyApi.Controllers
 {
-    public class ExerciseController : Controller
+    public class ExerciseController : ControllerBase
     {
-        public IActionResult Index()
+        private readonly IExerciseService exerciseService;
+
+        public ExerciseController(IExerciseService exerciseService)
         {
-            return View();
+            this.exerciseService = exerciseService;
         }
+
+        [HttpPost]
+        [HttpGet]
+        [HttpGet("${id}")]
+        [HttpPut]
+        [HttpDelete]
     }
 }
