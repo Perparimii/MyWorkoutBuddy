@@ -8,7 +8,7 @@ namespace MyWorkoutBuddyApi.Services
     {
         Task<WorkoutPlan> CreatePlanAsync(PlanDto newPlan);
         Task<IEnumerable<PlanDto?>> GetPlansAsync();
-        Task<IEnumerable<PlanDto?>> GetPlanByIdAsync(int id);
+        Task<PlanDto?> GetPlanByIdAsync(int id);
         Task<PlanDto?> UpdatePlanAsync(int id, PlanDto updatedPlan);
         Task<bool> DeletePlanAsync(int id);
     }

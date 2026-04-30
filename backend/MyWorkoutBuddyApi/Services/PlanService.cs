@@ -30,19 +30,19 @@ namespace MyWorkoutBuddyApi.Services
         }
 
 
-        public async Task<IEnumerable<PlanDto?>> GetPlanByIdAsync(int id)
+        public async Task<PlanDto?> GetPlanByIdAsync(int id)
         {
             // fix this later
-           
-            var plan = await _context.Plans.FindAsync(id)
-             .Select(p => new PlanDto
+            var plan = await _context.Plans.FirstOrDefaultAsync(e => e.Id == id);
+
+            if (plan == null) return null;
+
+            return new PlanDto
             {
-                Name = p.Name,
-                Description = p.Description,
-                Format = p.Format
-             }).ToListAsync();
-            
-            return plan;
+                Name = plan.Name,
+                Description = plan.Description,
+                Format = plan.Format
+            };
         }
 
 
