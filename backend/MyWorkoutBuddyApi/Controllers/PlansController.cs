@@ -51,7 +51,7 @@ namespace MyWorkoutBuddyApi.Controllers
 
         }
 
-
+        
         [HttpGet("{id}")]
         public async Task<ActionResult<IEnumerable<PlanDto>>> GetPlanById(int id)
         {
@@ -83,7 +83,7 @@ namespace MyWorkoutBuddyApi.Controllers
 
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<PlanDto>> DeletePlan(int id)
+        public async Task<ActionResult> DeletePlan(int id)
         {
             var plan = await _planService.DeletePlanAsync(id);
 

@@ -26,7 +26,7 @@ namespace MyWorkoutBuddyApi.Services
                 MaxReps = newExercise.MaxReps,
             };
 
-            _context.Exercises.(exercise);
+            _context.Exercises.Add(exercise);
             await _context.SaveChangesAsync();
 
             return exercise;

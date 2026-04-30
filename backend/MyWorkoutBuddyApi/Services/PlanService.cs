@@ -32,7 +32,7 @@ namespace MyWorkoutBuddyApi.Services
 
         public async Task<PlanDto?> GetPlanByIdAsync(int id)
         {
-            // fix this later
+
             var plan = await _context.Plans.FirstOrDefaultAsync(e => e.Id == id);
 
             if (plan == null) return null;
