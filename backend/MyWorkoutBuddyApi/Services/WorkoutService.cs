@@ -1,33 +1,123 @@
-﻿using MyWorkoutBuddyApi.Models.DTOs;
+﻿using Microsoft.EntityFrameworkCore;
+using MyWorkoutBuddyApi.Data;
+using MyWorkoutBuddyApi.Models.DTOs;
 using MyWorkoutBuddyApi.Models.Entities;
 
 namespace MyWorkoutBuddyApi.Services
 {
     public class WorkoutService : IWorkoutService
     {
-        public Task<Workout?> CreateWorkoutAsync(int planId, WorkoutDto newWorkout)
+        private readonly WorkoutDbContext _context;
+
+        public WorkoutService(WorkoutDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Task<WorkoutDto?> DeleteWorkoutAsync(int id)
+
+        public async Task<Workout?> CreateWorkoutAsync(WorkoutDto newWorkout)
         {
-            throw new NotImplementedException();
+            var workout = new Workout
+            {
+                Name = newWorkout.Name,
+                DayOfWeek = newWorkout.DayOfWeek,
+                ExerciseNumber = newWorkout.ExerciseNumber,
+                WorkoutPlanId = newWorkout.PlanId
+            };
+
+            if (newWorkout == null) return null;
+
+            _context.Workouts.Add(workout);
+            await _context.SaveChangesAsync();
+
+            return workout;
         }
 
-        public Task<WorkoutDto?> GetWorkoutByIdAsync(int id)
+
+        public async Task<IEnumerable<WorkoutDto?>> GetWorkoutsAsync()
         {
-            throw new NotImplementedException();
+            var workouts = await _context.Workouts
+                .Select(w => new WorkoutDto
+                    {
+                        Name = w.Name,
+                        DayOfWeek = w.DayOfWeek,
+                        ExerciseNumber = w.ExerciseNumber,
+                        PlanId = w.WorkoutPlanId
+
+                 }).ToListAsync();
+
+            if (workouts == null || workouts.Count == 0) return null;
+
+            return workouts;
         }
 
-        public Task<IEnumerable<WorkoutDto?>> GetWorkoutsAsync()
+
+        public async Task AddExercisesToWorkoutAsync(int workoutId, List<int> exerciseIds)
         {
-            throw new NotImplementedException();
+            var workout = await _context.Workouts
+                .Include(w => w.Exercises)
+                .FirstOrDefaultAsync(w => w.Id == workoutId);
+
+            if (workout == null) return;
+
+
+            var exercises = await _context.Exercises
+                .Where(e => exerciseIds.Contains(e.Id))
+                .ToListAsync();
+
+            foreach (var exercise in exercises)
+            {
+                workout.Exercises.Add(exercise);
+            }
+
+            await _context.SaveChangesAsync();
         }
 
-        public Task<WorkoutDto?> UpdateWorkoutAsync(WorkoutDto updatedWorkout)
+        
+        public async Task<WorkoutDto?> GetWorkoutByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var workout = await _context.Workouts.FindAsync(id);
+
+            if (workout == null) return null;
+
+            return new WorkoutDto
+            {
+                Name = workout.Name,
+                DayOfWeek = workout.DayOfWeek,
+                ExerciseNumber = workout.ExerciseNumber,
+                PlanId = workout.WorkoutPlanId
+            };
+        }
+
+
+        public async Task<WorkoutDto?> UpdateWorkoutAsync(int id, WorkoutDto updatedWorkout)
+        {
+            var workout = await _context.Workouts.FindAsync(id);
+            
+            if(workout == null) return null;
+
+            workout.Name = updatedWorkout.Name;
+            workout.DayOfWeek = updatedWorkout.DayOfWeek;
+            workout.ExerciseNumber = updatedWorkout.ExerciseNumber;
+            workout.WorkoutPlanId = updatedWorkout.PlanId;
+
+            await _context.SaveChangesAsync();
+
+            return updatedWorkout;
+        }
+
+
+        public async Task<bool> DeleteWorkoutAsync(int id)
+        {
+            var workout = await _context.Workouts.FindAsync(id);
+
+            if (workout == null) return false;
+
+            _context.Remove(workout);
+
+            await _context.SaveChangesAsync();
+
+            return true;
         }
     }
 }
