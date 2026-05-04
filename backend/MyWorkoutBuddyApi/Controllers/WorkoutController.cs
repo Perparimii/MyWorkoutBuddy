@@ -4,14 +4,14 @@ using MyWorkoutBuddyApi.Models.Entities;
 using MyWorkoutBuddyApi.Services;
 
 namespace MyWorkoutBuddyApi.Controllers
-{ 
+{
     [ApiController]
     [Route("api/[controller]")]
     public class WorkoutController : Controller
     {
         private readonly IWorkoutService _workoutService;
 
-        public WorkoutController(IWorkoutService workoutService) 
+        public WorkoutController(IWorkoutService workoutService)
         {
             _workoutService = workoutService;
         }
@@ -22,12 +22,12 @@ namespace MyWorkoutBuddyApi.Controllers
         {
             var workout = await _workoutService.CreateWorkoutAsync(newWorkout);
 
-            if(workout == null)
+            if (workout == null)
             {
                 return BadRequest("Please create a valid workout!");
             }
 
-            return Ok(workout);
+            return CreatedAtAction(nameof(GetWorkoutByID), new { id = workout.Id }, newWorkout);
         }
 
 
@@ -36,7 +36,7 @@ namespace MyWorkoutBuddyApi.Controllers
         {
             var workouts = await _workoutService.GetWorkoutsAsync();
 
-            if(workouts == null)
+            if (workouts == null)
             {
                 return NotFound("There are currently no existing workouts!");
             }
@@ -44,5 +44,46 @@ namespace MyWorkoutBuddyApi.Controllers
             return Ok(workouts);
         }
 
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<WorkoutDto>> GetWorkoutByID(int id)
+        {
+            var workout = await _workoutService.GetWorkoutByIdAsync(id);
+
+            if(workout == null)
+            {
+                return NotFound($"Workout with Id {id} does not exist");
+            }
+
+            return Ok(workout);
+        }
+
+
+        [HttpPut]
+        public async Task<ActionResult<WorkoutDto>> UpdateWorkout(int id, WorkoutDto updatedWorkout)
+        {
+            var oldWorkout = await _workoutService.UpdateWorkoutAsync(id, updatedWorkout);
+
+            if(oldWorkout == null)
+            {
+                return NotFound($"Workout with Id {id} does not exist");
+            }
+
+            return Ok(oldWorkout);
+        }
+
+
+        [HttpDelete]
+        public async Task<ActionResult> DeleteWorkout(int id)
+        {
+            var workout = await _workoutService.DeleteWorkoutAsync(id);
+
+            if(workout == false)
+            {
+                return NotFound($"Workout with Id {id} does not exist");
+            }
+
+            return NoContent();
+        }
     }
 }
