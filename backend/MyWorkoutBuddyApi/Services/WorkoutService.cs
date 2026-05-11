@@ -2,6 +2,7 @@
 using MyWorkoutBuddyApi.Data;
 using MyWorkoutBuddyApi.Models.DTOs;
 using MyWorkoutBuddyApi.Models.Entities;
+using System.Security.Claims;
 
 namespace MyWorkoutBuddyApi.Services
 {
@@ -34,17 +35,53 @@ namespace MyWorkoutBuddyApi.Services
         }
 
 
-        public async Task<IEnumerable<WorkoutDto?>> GetWorkoutsAsync()
+        public async Task<IEnumerable<WorkoutDto?>> GetWorkoutsAsync(ClaimsPrincipal user)
         {
-            var workouts = await _context.Workouts
-                .Select(w => new WorkoutDto
+            var userIdClaim = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if(userIdClaim == null)
+            {
+                throw new Exception("User not authenticated");
+            }
+
+            var role = user.FindFirst(ClaimTypes.Role)?.Value;
+
+            if (role == "Admin")
+            {
+                return await _context.Workouts
+                    .Select(w => new WorkoutDto
                     {
                         Name = w.Name,
                         DayOfWeek = w.DayOfWeek,
                         ExerciseNumber = w.ExerciseNumber,
                         PlanId = w.WorkoutPlanId
 
-                 }).ToListAsync();
+                    }).ToListAsync();
+            }
+
+            var userId = int.Parse(userIdClaim);
+
+            var dbUser = await _context.Users
+                .FirstOrDefaultAsync(u => u.Id == userId);
+
+            if (userIdClaim == null)
+            {
+                throw new Exception("User not authenticated");
+            }
+
+            var planId = dbUser.PlanId;
+
+            var workouts = await _context.Workouts
+                .Where(w => w.WorkoutPlanId == planId)
+                .Select(w => new WorkoutDto
+                {
+                    Name = w.Name,
+                    DayOfWeek = w.DayOfWeek,
+                    ExerciseNumber = w.ExerciseNumber,
+                    PlanId = w.WorkoutPlanId
+
+                }).ToListAsync();
+
 
             if (workouts == null || workouts.Count == 0) return null;
 

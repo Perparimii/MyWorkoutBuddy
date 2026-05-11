@@ -34,7 +34,7 @@ namespace MyWorkoutBuddyApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<WorkoutDto>>> GetWorkouts()
         {
-            var workouts = await _workoutService.GetWorkoutsAsync();
+            var workouts = await _workoutService.GetWorkoutsAsync(User);
 
             if (workouts == null)
             {
