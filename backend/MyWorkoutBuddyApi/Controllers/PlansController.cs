@@ -66,7 +66,7 @@ namespace MyWorkoutBuddyApi.Controllers
             return Ok(plan);
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
         public async Task<ActionResult<PlanDto>> UpdatePlan(int id, PlanDto updatedPlan)
         {
@@ -81,7 +81,7 @@ namespace MyWorkoutBuddyApi.Controllers
 
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeletePlan(int id)
         {

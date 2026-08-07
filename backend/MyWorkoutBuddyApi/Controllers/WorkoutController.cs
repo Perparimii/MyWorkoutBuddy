@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyWorkoutBuddyApi.Models.DTOs;
 using MyWorkoutBuddyApi.Models.Entities;
 using MyWorkoutBuddyApi.Services;
 
 namespace MyWorkoutBuddyApi.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class WorkoutController : Controller
@@ -17,6 +19,7 @@ namespace MyWorkoutBuddyApi.Controllers
         }
 
         //doesnt associate a Plan correspondent to the PlanId
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<ActionResult<Workout>> CreateWorkout(WorkoutDto newWorkout)
         {
@@ -30,7 +33,7 @@ namespace MyWorkoutBuddyApi.Controllers
             return CreatedAtAction(nameof(GetWorkoutByID), new { id = workout.Id }, newWorkout);
         }
 
-
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<WorkoutDto>>> GetWorkouts()
         {
@@ -58,7 +61,7 @@ namespace MyWorkoutBuddyApi.Controllers
             return Ok(workout);
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpPut]
         public async Task<ActionResult<WorkoutDto>> UpdateWorkout(int id, WorkoutDto updatedWorkout)
         {
@@ -72,7 +75,7 @@ namespace MyWorkoutBuddyApi.Controllers
             return Ok(oldWorkout);
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpDelete]
         public async Task<ActionResult> DeleteWorkout(int id)
         {
