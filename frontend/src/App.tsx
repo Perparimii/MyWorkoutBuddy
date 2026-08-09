@@ -3,7 +3,7 @@
 //import viteLogo from './assets/vite.svg'
 //import heroImg from './assets/hero.png'
 //import './App.css'
-import Welcome from "./Components/Welcome"
+import Welcome from "./components/Welcome"
 
 function App() {
   //const [count, setCount] = useState(0)
