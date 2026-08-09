@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { useState, type SubmitEventHandler } from "react"
+import { useState } from "react"
 
 function Landing(){
 
