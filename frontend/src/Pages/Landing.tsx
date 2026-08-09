@@ -76,7 +76,6 @@ return(
                       </form>
                     </div>
 
-                    {/* Form will go here */}
                 </Card>
             </section>
     </main>
