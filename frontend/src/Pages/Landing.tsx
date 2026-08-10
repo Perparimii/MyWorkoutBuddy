@@ -44,11 +44,23 @@ return(
                         Login to access your workouts.
                     </p>
                     <div className="mt-6 space-y-4">
-                      <form className="mt-6 space-y-4" onSubmit={(e) => {
+                      <form className="mt-6 space-y-4" onSubmit={async (e) => {
                          e.preventDefault();
 
-                         console.log("Username:", username);
-                         console.log("Password:", password);
+                         const response =await fetch("https://localhost:7027/api/Auth/login", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                email,
+                                username,
+                                password
+                            })
+                         });
+
+                         console.log(response);
+                        
                          }}>
 
                         <Input 
