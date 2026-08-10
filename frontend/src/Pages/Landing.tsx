@@ -59,8 +59,18 @@ return(
                             })
                          });
 
-                         console.log(response);
-                        
+                         if(!response.ok){
+                            console.log("Login failed!");
+                            return;
+                         }
+
+                         const data = await response.json();
+
+                         const token = data.result;
+
+                         localStorage.setItem("token", token);
+
+                         console.log("Login successful");
                          }}>
 
                         <Input 
