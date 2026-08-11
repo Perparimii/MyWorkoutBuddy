@@ -3,6 +3,7 @@
 //import viteLogo from './assets/vite.svg'
 //import heroImg from './assets/hero.png'
 //import './App.css'
+import ProtectedRoute from "@/ProtectedRoute";
 import Landing from "@/Pages/Landing";
 import Dashboard from "@/Pages/Dashboard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -16,7 +17,7 @@ function App() {
     <Routes>
 
       <Route path="/" element={<Landing/>}/>
-      <Route path="/dashboard" element={<Dashboard/>}/>
+      <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
 
     </Routes>
   </BrowserRouter>
