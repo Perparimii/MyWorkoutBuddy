@@ -1,13 +1,15 @@
-import { Card } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { useState } from "react"
+import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { use, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Landing(){
 
     const[username, setUsername]= useState("");
     const[password, setPassword]= useState("");
     const[email, setEmail]= useState("");
+    const navigate = useNavigate();
 
 
 return(
@@ -66,6 +68,8 @@ return(
                          localStorage.setItem("token", token);
 
                          console.log("Login successful");
+
+                         navigate("/dashboard");
                          }}>
 
                         <Input 
