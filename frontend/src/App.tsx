@@ -4,6 +4,7 @@
 //import heroImg from './assets/hero.png'
 //import './App.css'
 import Landing from "@/Pages/Landing";
+import Dashboard from "@/Pages/Dashboard";
 
 function App() {
   //const [count, setCount] = useState(0)
@@ -11,4 +12,4 @@ function App() {
   return <Landing />;
   
 }
-export default App
+export default App;

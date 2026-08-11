@@ -9,11 +9,6 @@ function Landing(){
     const[password, setPassword]= useState("");
     const[email, setEmail]= useState("");
 
-// const handleSubmit = (e: SubmitEventHandler<HTMLFormElement>) => {
-
-       
-
-
 
 return(
     <main className="min-h-screen grid grid-cols-2">
