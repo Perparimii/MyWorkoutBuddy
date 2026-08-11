@@ -4,115 +4,140 @@
 @import "@fontsource-variable/geist";
 
 @custom-variant dark (&:is(.dark *));
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: oklch(0.922 0 0);
-  --code-bg: #f4f3ec;
-  --accent: oklch(0.97 0 0);
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+:root {
+  /* ---------- General app colors ---------- */
+
+  --text: #1e293b;
+  --text-h: #0f172a;
+
+  --bg: #ffffff;
+
+  --border: #cbd5e1;
+
+  --code-bg: #f1f5f9;
+
+  --accent: #3b82f6;
+  --accent-bg: rgba(59, 130, 246, 0.1);
+  --accent-border: rgba(59, 130, 246, 0.5);
+
+  --shadow:
+    rgba(15, 23, 42, 0.12) 0 10px 25px -5px,
+    rgba(15, 23, 42, 0.08) 0 4px 10px -2px;
+
+  /* ---------- Fonts ---------- */
+
+  --sans: "Geist Variable", system-ui, "Segoe UI", Roboto, sans-serif;
+  --heading: "Geist Variable", system-ui, "Segoe UI", Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
-  font: 18px/145% var(--sans);
+  /* ---------- shadcn ---------- */
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+
+  --primary: oklch(0.55 0.18 250);
+  --primary-foreground: oklch(0.985 0 0);
+
+  --secondary: oklch(0.96 0.02 240);
+  --secondary-foreground: oklch(0.25 0.03 250);
+
+  --muted: oklch(0.96 0.02 240);
+  --muted-foreground: oklch(0.5 0.03 250);
+
+  --accent-foreground: oklch(0.25 0.03 250);
+
+  --destructive: oklch(0.577 0.245 27.325);
+
+  --input: oklch(0.88 0.02 240);
+  --ring: oklch(0.65 0.15 250);
+
+  --chart-1: oklch(0.6 0.18 250);
+  --chart-2: oklch(0.65 0.15 230);
+  --chart-3: oklch(0.55 0.12 270);
+  --chart-4: oklch(0.5 0.1 250);
+  --chart-5: oklch(0.45 0.08 240);
+
+  --radius: 0.75rem;
+
+  --sidebar: oklch(0.985 0.01 240);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.55 0.18 250);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.96 0.02 240);
+  --sidebar-accent-foreground: oklch(0.25 0.03 250);
+  --sidebar-border: oklch(0.88 0.02 240);
+  --sidebar-ring: oklch(0.65 0.15 250);
+
+  /* ---------- Base ---------- */
+
+  font-family: var(--sans);
+  font-size: 18px;
+  line-height: 1.45;
   letter-spacing: 0.18px;
-  color-scheme: light dark;
+
   color: var(--text);
-  background: var(--bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
-
-  --background: oklch(1 0 0);
-
-  --foreground: oklch(0.145 0 0);
-
-  --card: oklch(1 0 0);
-
-  --card-foreground: oklch(0.145 0 0);
-
-  --popover: oklch(1 0 0);
-
-  --popover-foreground: oklch(0.145 0 0);
-
-  --primary: oklch(0.205 0 0);
-
-  --primary-foreground: oklch(0.985 0 0);
-
-  --secondary: oklch(0.97 0 0);
-
-  --secondary-foreground: oklch(0.205 0 0);
-
-  --muted: oklch(0.97 0 0);
-
-  --muted-foreground: oklch(0.556 0 0);
-
-  --accent-foreground: oklch(0.205 0 0);
-
-  --destructive: oklch(0.577 0.245 27.325);
-
-  --input: oklch(0.922 0 0);
-
-  --ring: oklch(0.708 0 0);
-
-  --chart-1: oklch(0.87 0 0);
-
-  --chart-2: oklch(0.556 0 0);
-
-  --chart-3: oklch(0.439 0 0);
-
-  --chart-4: oklch(0.371 0 0);
-
-  --chart-5: oklch(0.269 0 0);
-
-  --radius: 0.625rem;
-
-  --sidebar: oklch(0.985 0 0);
-
-  --sidebar-foreground: oklch(0.145 0 0);
-
-  --sidebar-primary: oklch(0.205 0 0);
-
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-
-  --sidebar-accent: oklch(0.97 0 0);
-
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-
-  --sidebar-border: oklch(0.922 0 0);
-
-  --sidebar-ring: oklch(0.708 0 0)
+  color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+/* ---------- Page background ---------- */
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
+html {
+  min-height: 100%;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+
+  background: linear-gradient(
+    to bottom,
+    #ffffff 0%,
+    #eaf5ff 30%,
+    #b9ddf7 60%,
+    #3b82c4 100%
+  );
+
+  background-attachment: fixed;
+}
+
+/* ---------- React application container ---------- */
+
+#root {
+  width: min(1400px, calc(100% - 32px));
+  min-height: calc(100vh - 32px);
+
+  margin: 16px auto;
+
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.82);
+
+  box-shadow:
+    rgba(15, 23, 42, 0.15) 0 20px 40px -10px,
+    rgba(15, 23, 42, 0.08) 0 5px 15px -5px;
+
+  backdrop-filter: blur(10px);
+}
+
+/* ---------- Responsive typography ---------- */
+
+@media (max-width: 1024px) {
+  :root {
+    font-size: 16px;
   }
 }
 
