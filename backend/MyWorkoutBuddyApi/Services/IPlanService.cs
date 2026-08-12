@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyWorkoutBuddyApi.Models.DTOs;
 using MyWorkoutBuddyApi.Models.Entities;
+using System.Security.Claims;
 
 namespace MyWorkoutBuddyApi.Services
 {
@@ -9,6 +10,7 @@ namespace MyWorkoutBuddyApi.Services
         Task<WorkoutPlan> CreatePlanAsync(PlanDto newPlan);
         Task<IEnumerable<PlanDto?>> GetPlansAsync();
         Task<PlanDto?> GetPlanByIdAsync(int id);
+        Task<PlanDto?> SelectPlan(ClaimsPrincipal user, int id);
         Task<PlanDto?> UpdatePlanAsync(int id, PlanDto updatedPlan);
         Task<bool> DeletePlanAsync(int id);
     }

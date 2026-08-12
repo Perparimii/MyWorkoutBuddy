@@ -64,10 +64,6 @@ namespace MyWorkoutBuddyApi.Services
             var dbUser = await _context.Users
                 .FirstOrDefaultAsync(u => u.Id == userId);
 
-            if (userIdClaim == null)
-            {
-                throw new Exception("User not authenticated");
-            }
 
             var planId = dbUser.PlanId;
 

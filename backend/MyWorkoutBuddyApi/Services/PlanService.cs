@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using MyWorkoutBuddyApi.Data;
 using MyWorkoutBuddyApi.Models.DTOs;
 using MyWorkoutBuddyApi.Models.Entities;
+using System.Security.Claims;
 
 namespace MyWorkoutBuddyApi.Services
 {
@@ -59,6 +60,40 @@ namespace MyWorkoutBuddyApi.Services
                 .ToListAsync();
 
             return plans;
+        }
+
+
+        public async Task<PlanDto?> SelectPlan(ClaimsPrincipal user, int id)
+        {
+            var userIdClaim = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (userIdClaim == null)
+            {
+                return null;
+            }
+
+            var userId = int.Parse(userIdClaim);
+
+            var dbUser = await _context.Users
+                .FirstOrDefaultAsync(u => u.Id == userId);
+
+            var plan = await _context.Plans.FindAsync(id);
+
+            if (plan == null)
+            {
+                return null;
+            }
+
+            dbUser.PlanId = id;
+
+            await _context.SaveChangesAsync();
+
+            return new PlanDto
+            {
+                Name = plan.Name,
+                Description = plan.Description,
+                Format = plan.Format
+            };
         }
 
 

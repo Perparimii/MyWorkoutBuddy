@@ -6,6 +6,7 @@ using MyWorkoutBuddyApi.Models.DTOs;
 using MyWorkoutBuddyApi.Models.Entities;
 using MyWorkoutBuddyApi.Services;
 using System.Numerics;
+using System.Security.Claims;
 
 namespace MyWorkoutBuddyApi.Controllers
 {
@@ -65,6 +66,21 @@ namespace MyWorkoutBuddyApi.Controllers
 
             return Ok(plan);
         }
+
+
+        [HttpPatch("{id}")]
+        public async Task<ActionResult<PlanDto>> SelectPlan(int id)
+        {
+            var userPlan = await _planService.SelectPlan(User, id);
+
+            if(userPlan == null)
+            {
+                return BadRequest($"Plan with id {id} doesn't exist!");
+            }
+
+            return Ok(userPlan);
+        } 
+
 
         [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
