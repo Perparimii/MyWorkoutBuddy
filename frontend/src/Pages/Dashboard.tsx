@@ -1,21 +1,10 @@
 //import { Button } from "@/components/ui/button";
 //import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider } from "@/components/ui/sidebar";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import { DashboardSidebar } from "@/components/customComponents/dashboardSidebar"
 
 
 function Dashboard(){
-
-    const navigate = useNavigate();
-
-    function handleLogOut(){
-        console.log("Button clicked");
-
-        localStorage.removeItem("token");
-
-        navigate("/");
-    }
-
 
     return( 
     
@@ -35,7 +24,7 @@ function Dashboard(){
                     </h1>
 
                     <p className="mt-4 text-lg">
-                        You currently don't have a selected plan. Please navigate to Plans to select your plan.
+                        You don't have a selected plan. Please navigate to Plans to select your plan.
                     </p>
                 </div>
             </section>

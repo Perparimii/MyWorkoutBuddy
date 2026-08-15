@@ -7,6 +7,7 @@ import ProtectedRoute from "@/ProtectedRoute";
 import Landing from "@/Pages/Landing";
 import Dashboard from "@/Pages/Dashboard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "@/Pages/Home";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
 
       <Route path="/" element={<Landing/>}/>
       <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
+      <Route path="/home" element={<ProtectedRoute><Home/></ProtectedRoute>}/>
 
     </Routes>
   </BrowserRouter>
