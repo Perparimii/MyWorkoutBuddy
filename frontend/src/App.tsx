@@ -7,8 +7,8 @@ import ProtectedRoute from "@/ProtectedRoute";
 import Landing from "@/Pages/Landing";
 import Dashboard from "@/Pages/Dashboard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "@/Pages/Home";
 import MyWorkouts from "./Pages/MyWorkouts";
+import Plans from "./Pages/Plans";
 
 
 function App() {
@@ -17,12 +17,11 @@ function App() {
 
   <BrowserRouter>
     <Routes>
-
       <Route path="/" element={<Landing/>}/>
       <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
-      <Route path="/home" element={<ProtectedRoute><Home/></ProtectedRoute>}/>
+      <Route path="/home" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
       <Route path="/myworkouts" element={<ProtectedRoute><MyWorkouts/></ProtectedRoute>}/>
-
+      <Route path="/plans" element={<ProtectedRoute><Plans/></ProtectedRoute>}/>
     </Routes>
   </BrowserRouter>
   );
