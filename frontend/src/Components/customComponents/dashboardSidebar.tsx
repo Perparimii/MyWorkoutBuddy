@@ -23,7 +23,7 @@ function DashboardSidebar(){
                                 <SidebarGroupContent>
                                     <SidebarMenu className="gap-3">
                                         <SidebarMenuItem>
-                                            <SidebarMenuButton onClick={() => navigate("/home") } className="border border-blue-200 rounded-md hover:bg-blue-50 hover:border-blue-300">
+                                            <SidebarMenuButton onClick={() => navigate("/dashboard") } className="border border-blue-200 rounded-md hover:bg-blue-50 hover:border-blue-300">
                                                 Home
                                             </SidebarMenuButton>
                                         </SidebarMenuItem>

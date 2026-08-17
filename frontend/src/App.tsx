@@ -8,6 +8,7 @@ import Landing from "@/Pages/Landing";
 import Dashboard from "@/Pages/Dashboard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "@/Pages/Home";
+import MyWorkouts from "./Pages/MyWorkouts";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <Route path="/" element={<Landing/>}/>
       <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
       <Route path="/home" element={<ProtectedRoute><Home/></ProtectedRoute>}/>
+      <Route path="/myworkouts" element={<ProtectedRoute><MyWorkouts/></ProtectedRoute>}/>
 
     </Routes>
   </BrowserRouter>
