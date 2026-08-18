@@ -82,20 +82,6 @@ namespace MyWorkoutBuddyApi.Controllers
         }
 
 
-        [HttpPatch("{planId}/workouts/{workoutId}")]
-        public async Task<ActionResult> AddWorkoutToPlan(int planId, int workoutId)
-        {
-            var workoutToPlan = await _planService.AddWorkoutToPlan(planId, workoutId);
-
-            if(workoutToPlan == false)
-            {
-                return BadRequest("Incorrect plan or workout");
-            }
-
-            return NoContent();
-        }
-
-
         [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
         public async Task<ActionResult<PlanDto>> UpdatePlan(int id, PlanDto updatedPlan)
