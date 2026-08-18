@@ -63,6 +63,23 @@ namespace MyWorkoutBuddyApi.Services
         }
 
 
+        public async Task<bool> AddWorkoutToPlan(int planId, int workoutId)
+        {
+            var plan = await _context.Plans.FindAsync(planId);
+
+            if (plan == null) return false;
+
+            var workout = await _context.Workouts.FindAsync(workoutId);
+
+            if (workout == null) return false;
+
+            workout.WorkoutPlanId = planId;
+
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
+
         public async Task<PlanDto?> SelectPlan(ClaimsPrincipal user, int id)
         {
             var userIdClaim = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;

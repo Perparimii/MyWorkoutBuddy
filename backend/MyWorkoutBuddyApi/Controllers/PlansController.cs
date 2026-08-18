@@ -79,7 +79,21 @@ namespace MyWorkoutBuddyApi.Controllers
             }
 
             return Ok(userPlan);
-        } 
+        }
+
+
+        [HttpPatch("{planId}/workouts/{workoutId}")]
+        public async Task<ActionResult> AddWorkoutToPlan(int planId, int workoutId)
+        {
+            var workoutToPlan = await _planService.AddWorkoutToPlan(planId, workoutId);
+
+            if(workoutToPlan == false)
+            {
+                return BadRequest("Incorrect plan or workout");
+            }
+
+            return NoContent();
+        }
 
 
         [Authorize(Roles = "Admin")]
