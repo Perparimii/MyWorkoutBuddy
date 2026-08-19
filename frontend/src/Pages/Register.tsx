@@ -1,50 +1,48 @@
+import {Button} from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Input} from "@/components/ui/input";
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function Landing(){
+function Register(){
 
-    const[username, setUsername]= useState("");
+     const[username, setUsername]= useState("");
     const[password, setPassword]= useState("");
     const[email, setEmail]= useState("");
     const navigate = useNavigate();
 
+return (
 
-return(
-    <main className="min-h-screen grid grid-cols-2">
+ <main className="min-h-screen grid grid-cols-2">
 
-     {/*Left side*/}
-
+     
          <section className="flex items-center justify-center">
                 <div>
                     <h1 className="text-5xl font-bold">
-                        Welcome to MyWorkoutBuddy
+                        Register
                     </h1>
 
                     <p className="mt-4 text-lg">
-                        The friend you need to let you keep up with your fitness goals.
+                        Please enter your credentials.
                     </p>
                 </div>
             </section>
 
-    {/*Right side*/} 
 
         <section className="flex items-center justify-center">
                 <Card className="w-[400px] p-6">
                     <h2 className="text-2xl font-bold">
-                        Login
+                        Register
                     </h2>
 
                     <p className="mt-2 text-muted-foreground">
-                        Login to access your workouts.
+                        Enter your credentials.
                     </p>
                     <div className="mt-6 space-y-4">
                       <form className="mt-6 space-y-4" onSubmit={async (e) => {
                          e.preventDefault();
 
-                         const response =await fetch("https://localhost:7027/api/Auth/login", {
+                         const response =await fetch("https://localhost:7027/api/Auth/register", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json"
@@ -61,15 +59,7 @@ return(
                             return;
                          }
 
-                         const data = await response.json();
-
-                         const token = data.result;
-
-                         localStorage.setItem("token", token);
-
-                         console.log("Login successful");
-
-                         navigate("/dashboard");
+                         navigate("/");
                          }}>
 
                         <Input 
@@ -92,17 +82,17 @@ return(
                     
 
                         <Button className="w-full" type="submit">
-                            Log In
+                            Create account
                         </Button>
                       </form>
-                        <Link to={"/register"} className="text-blue-600 hover:underline">
-                        Don't have an account? Click here to register
-                        </Link>
                     </div>
 
                 </Card>
             </section>
     </main>
-);
+
+    );
+
 }
- export default Landing;
+
+export default Register;
