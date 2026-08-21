@@ -69,16 +69,16 @@ namespace MyWorkoutBuddyApi.Controllers
 
 
         [HttpPatch("{id}")]
-        public async Task<ActionResult<PlanDto>> SelectPlan(int id)
+        public async Task<ActionResult> SelectPlan(int id)
         {
             var userPlan = await _planService.SelectPlan(User, id);
 
-            if(userPlan == null)
+            if(userPlan == false)
             {
                 return BadRequest($"Plan with id {id} doesn't exist!");
             }
 
-            return Ok(userPlan);
+            return NoContent();
         }
 
 

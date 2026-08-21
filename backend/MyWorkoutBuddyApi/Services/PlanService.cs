@@ -16,7 +16,7 @@ namespace MyWorkoutBuddyApi.Services
         }
 
 
-        public async Task<WorkoutPlan> CreatePlanAsync(PlanDto newPlan)
+        public async Task<WorkoutPlan> CreatePlanAsync(CreatePlanDto newPlan)
         {
             var plan = new WorkoutPlan
             {
@@ -40,6 +40,7 @@ namespace MyWorkoutBuddyApi.Services
 
             return new PlanDto
             {
+                Id = plan.Id,
                 Name = plan.Name,
                 Description = plan.Description,
                 Format = plan.Format
@@ -53,6 +54,7 @@ namespace MyWorkoutBuddyApi.Services
             var plans = await _context.Plans
                 .Select(p => new PlanDto
                     { 
+                         Id = p.Id,
                          Name = p.Name,
                          Description = p.Description,
                          Format = p.Format
@@ -63,13 +65,13 @@ namespace MyWorkoutBuddyApi.Services
         }
 
 
-        public async Task<PlanDto?> SelectPlan(ClaimsPrincipal user, int id)
+        public async Task<bool> SelectPlan(ClaimsPrincipal user, int id)
         {
             var userIdClaim = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
             if (userIdClaim == null)
             {
-                return null;
+                return false;
             }
 
             var userId = int.Parse(userIdClaim);
@@ -81,19 +83,14 @@ namespace MyWorkoutBuddyApi.Services
 
             if (plan == null)
             {
-                return null;
+                return false;
             }
 
             dbUser.PlanId = id;
 
             await _context.SaveChangesAsync();
 
-            return new PlanDto
-            {
-                Name = plan.Name,
-                Description = plan.Description,
-                Format = plan.Format
-            };
+            return true;
         }
 
 
