@@ -3,24 +3,44 @@ import { Item, ItemActions, ItemContent, ItemDescription, ItemFooter, ItemMedia,
 import { Button } from "@/components/ui/button";
 //import { Icon } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 
 function Plans(){
 
     interface Plan {
-    id: number;
+    Id: number;
     name: string;
     description: string;
     format: string
 }
 
 const[plans, setPlans] = useState<Plan[]>([]);
+const navigate = useNavigate();
+
+
+const selectPlan = async (planId: number)=>{
+
+    const response = await fetch(`https://localhost:7027/api/Plans/${planId}`,{
+        method: "PATCH",
+        headers: {
+            "Authorization": `Bearer ${localStorage.getItem("token")}`
+        }
+    });
+
+    if(!response.ok){
+        navigate("/dashboard");
+    }
+
+    console.log(planId);
+}
+
 
 useEffect(()=> {
 
     const getPlans = async ()=> {
 
-        const response = await fetch("https://localhost:7027/api/Plans")
+        const response = await fetch("https://localhost:7027/api/Plans");
 
         const data = await response.json();
 
@@ -47,14 +67,14 @@ return(
         <section className="flex flex-col items-center justify-center w-full">
             <div className="w-full max-w-4xl mx-auto px-6 space-y-4">
                 {plans.map((Plan) => (
-                    <Item className="border border-blue-200 rounded-md hover:bg-blue-50 hover:border-blue-300">
+                    <Item key={Plan.id} className="border border-blue-200 rounded-md hover:bg-blue-50 hover:border-blue-300">
                     <ItemContent>
                         <ItemTitle>{Plan.name}</ItemTitle>
                         <ItemDescription>{Plan.description}</ItemDescription>
                         <ItemFooter>Format: {Plan.format}</ItemFooter>
                     </ItemContent>
                     <ItemActions>
-                        <Button>Select</Button>
+                        <Button onClick={() => selectPlan(Plan.Id)}>Select</Button>
                     </ItemActions>
                 </Item>
                 ))}
