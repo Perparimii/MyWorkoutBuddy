@@ -2,8 +2,9 @@
 
 namespace MyWorkoutBuddyApi.Models.DTOs
 {
-    public class PlanDto
+    public class CreatePlanDto
     {
+          
         [Required]
         public string Name { get; set; }
         [Required]
