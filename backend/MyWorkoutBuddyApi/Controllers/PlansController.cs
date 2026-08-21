@@ -27,7 +27,7 @@ namespace MyWorkoutBuddyApi.Controllers
 
         [Authorize(Roles ="Admin")]
         [HttpPost]
-        public async Task<ActionResult<WorkoutPlan>> CreatePlan(PlanDto newPlan)
+        public async Task<ActionResult<WorkoutPlan>> CreatePlan(CreatePlanDto newPlan)
         {
 
             var createdPlan = await _planService.CreatePlanAsync(newPlan);

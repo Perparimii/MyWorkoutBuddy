@@ -9,7 +9,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 function Plans(){
 
     interface Plan {
-    Id: number;
+    id: number;
     name: string;
     description: string;
     format: string
@@ -74,7 +74,7 @@ return(
                         <ItemFooter>Format: {Plan.format}</ItemFooter>
                     </ItemContent>
                     <ItemActions>
-                        <Button onClick={() => selectPlan(Plan.Id)}>Select</Button>
+                        <Button onClick={() => selectPlan(Plan.id)}>Select</Button>
                     </ItemActions>
                 </Item>
                 ))}
