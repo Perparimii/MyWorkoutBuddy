@@ -39,9 +39,14 @@ namespace MyWorkoutBuddyApi.Controllers
         {
             var workouts = await _workoutService.GetWorkoutsAsync(User);
 
+            if (User == null)
+            {
+                return Unauthorized("User not authenticated!");
+            }
+
             if (workouts == null)
             {
-                return NotFound("There are currently no existing workouts!");
+                return NotFound("There are currently no existing workouts or you haven't selected a plan!");
             }
 
             return Ok(workouts);
