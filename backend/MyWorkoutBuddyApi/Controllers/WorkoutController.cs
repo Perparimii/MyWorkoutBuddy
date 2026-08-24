@@ -18,7 +18,7 @@ namespace MyWorkoutBuddyApi.Controllers
             _workoutService = workoutService;
         }
 
-        //doesnt associate a Plan correspondent to the PlanId
+
         [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<ActionResult<Workout>> CreateWorkout(WorkoutDto newWorkout)

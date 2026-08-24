@@ -17,6 +17,7 @@ function Plans(){
 
 const[plans, setPlans] = useState<Plan[]>([]);
 const navigate = useNavigate();
+const [selectedPlanId, setSelectedPlanId] = useState<number | null>(null);
 
 
 const selectPlan = async (planId: number)=>{
@@ -28,8 +29,8 @@ const selectPlan = async (planId: number)=>{
         }
     });
 
-    if(!response.ok){
-        navigate("/dashboard");
+    if(response.ok){
+        setSelectedPlanId(planId);
     }
 
     console.log(planId);
@@ -74,7 +75,9 @@ return(
                         <ItemFooter>Format: {Plan.format}</ItemFooter>
                     </ItemContent>
                     <ItemActions>
-                        <Button onClick={() => selectPlan(Plan.id)}>Select</Button>
+                        <Button onClick={() => selectPlan(Plan.id)} 
+                        className={
+                        selectedPlanId === Plan.id ? "bg-green-600 text-white hover:bg-green-700": "bg-blue-600 text-white hover:bg-blue-700"} >{selectedPlanId === Plan.id ? "Selected" : "Select"}</Button>
                     </ItemActions>
                 </Item>
                 ))}
