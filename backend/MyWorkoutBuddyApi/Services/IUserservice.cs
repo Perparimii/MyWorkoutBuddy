@@ -1,6 +1,10 @@
-﻿namespace MyWorkoutBuddyApi.Services
+﻿using MyWorkoutBuddyApi.Models.DTOs;
+using System.Security.Claims;
+
+namespace MyWorkoutBuddyApi.Services
 {
-    public class IUserservice
+    public interface IUserservice
     {
+        Task<UserDto?> GetProfile(ClaimsPrincipal user);
     }
 }
