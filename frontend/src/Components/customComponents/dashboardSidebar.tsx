@@ -37,6 +37,11 @@ function DashboardSidebar(){
                                                 My Workouts
                                             </SidebarMenuButton>
                                         </SidebarMenuItem>
+                                        <SidebarMenuItem>
+                                            <SidebarMenuButton onClick={() => navigate("/todaysworkout") } className="border border-blue-200 rounded-md hover:bg-blue-50 hover:border-blue-300">
+                                                Todays Workout
+                                            </SidebarMenuButton>
+                                        </SidebarMenuItem>
                                     </SidebarMenu>
                                 </SidebarGroupContent>
                             </SidebarGroup>

@@ -10,6 +10,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MyWorkouts from "./Pages/MyWorkouts";
 import Plans from "./Pages/Plans";
 import Register from "./Pages/Register";
+import TodaysWorkout from "./Pages/TodaysWorkout";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <Route path="/home" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
       <Route path="/myworkouts" element={<ProtectedRoute><MyWorkouts/></ProtectedRoute>}/>
       <Route path="/plans" element={<ProtectedRoute><Plans/></ProtectedRoute>}/>
+      <Route path="/todaysworkout" element={<ProtectedRoute><TodaysWorkout/></ProtectedRoute>}/>
     </Routes>
   </BrowserRouter>
   );
