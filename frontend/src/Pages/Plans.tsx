@@ -17,7 +17,7 @@ function Plans(){
 
 interface UserProfile {
     id: number;
-    username: string;
+    userName: string;
     email: string;
     planId: number | null;
 }
@@ -25,8 +25,8 @@ interface UserProfile {
 
 
 const[plans, setPlans] = useState<Plan[]>([]);
+const [user, setUser] = useState<UserProfile | null>(null);
 const navigate = useNavigate();
-const [selectedPlanId, setSelectedPlanId] = useState<number | null>(null);
 
 
 const selectPlan = async (planId: number)=>{
@@ -39,7 +39,7 @@ const selectPlan = async (planId: number)=>{
     });
 
     if(response.ok){
-        setSelectedPlanId(planId);
+        navigate("/dashboard");
     }
 
     console.log(planId);
@@ -62,8 +62,25 @@ useEffect(()=> {
 
     getPlans();
 
+    const getUser = async () =>{
+        const response = await fetch(`https://localhost:7027/api/User`,{
+        method: "GET",
+        headers: {
+            "Authorization": `Bearer ${localStorage.getItem("token")}`
+        }
+    });
+
+    const data = await response.json();
+
+    setUser(data);
+    };
+
+    getUser();
+
         
     }, []);
+
+    console.log(user);
 
 return(
 
@@ -86,7 +103,7 @@ return(
                     <ItemActions>
                         <Button onClick={() => selectPlan(Plan.id)} 
                         className={
-                        selectedPlanId === Plan.id ? "bg-green-600 text-white hover:bg-green-700": "bg-blue-600 text-white hover:bg-blue-700"} >{selectedPlanId === Plan.id ? "Selected" : "Select"}</Button>
+                        user?.planId === Plan.id ? "bg-green-600 text-white hover:bg-green-700": "bg-blue-600 text-white hover:bg-blue-700"} >{user?.planId === Plan.id ? "Selected" : "Select"}</Button>
                     </ItemActions>
                 </Item>
                 ))}

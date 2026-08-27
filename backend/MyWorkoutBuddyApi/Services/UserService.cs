@@ -41,8 +41,7 @@ namespace MyWorkoutBuddyApi.Services
                 UserName = dbUser.UserName,
                 Email = dbUser.Email,
                 PlanId = dbUser.PlanId,
-                Role = dbUser.Role,
-                WorkoutPlan = dbUser.WorkoutPlan
+                Role = dbUser.Role
             };
         }
     }
