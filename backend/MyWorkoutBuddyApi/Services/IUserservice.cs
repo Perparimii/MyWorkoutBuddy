@@ -3,7 +3,7 @@ using System.Security.Claims;
 
 namespace MyWorkoutBuddyApi.Services
 {
-    public interface IUserservice
+    public interface IUserService
     {
         Task<UserDto?> GetProfile(ClaimsPrincipal user);
     }

@@ -29,7 +29,7 @@ namespace MyWorkoutBuddyApi.Services
         }
 
 
-        public async Task<bool> ChangeUserRole(int id, String role)
+        public async Task<bool> ChangeUserRole(int id, string role)
         {
             var user = await _context.Users.FindAsync(id);
 
@@ -46,7 +46,7 @@ namespace MyWorkoutBuddyApi.Services
         }
 
 
-        public async Task<bool> DeleteUsers(int id)
+        public async Task<bool> DeleteUser(int id)
         {
             var user = await _context.Users.FindAsync(id);
 

@@ -5,7 +5,7 @@ using System.Security.Claims;
 
 namespace MyWorkoutBuddyApi.Services
 {
-    public class UserService : IUserservice
+    public class UserService : IUserService
     {
          private readonly WorkoutDbContext _context;
 
