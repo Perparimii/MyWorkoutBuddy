@@ -7,13 +7,22 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 
 function Plans(){
-
+//needed interfaces
     interface Plan {
     id: number;
     name: string;
     description: string;
     format: string
 }
+
+interface UserProfile {
+    id: number;
+    username: string;
+    email: string;
+    planId: number | null;
+}
+//
+
 
 const[plans, setPlans] = useState<Plan[]>([]);
 const navigate = useNavigate();
