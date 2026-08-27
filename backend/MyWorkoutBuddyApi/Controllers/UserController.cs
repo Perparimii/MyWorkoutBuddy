@@ -10,9 +10,9 @@ namespace MyWorkoutBuddyApi.Controllers
     [Route("api/[controller]")]
     public class UserController : Controller
     {
-        private readonly IUserservice _userService;
+        private readonly IUserService _userService;
 
-        public UserController(IUserservice userService)
+        public UserController(IUserService userService)
         {
             _userService = userService;
         }
