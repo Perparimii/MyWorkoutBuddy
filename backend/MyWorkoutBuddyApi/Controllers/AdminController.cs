@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 
 namespace MyWorkoutBuddyApi.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     [ApiController]
     [Route("api/[controller]")]
     public class AdminController : ControllerBase
