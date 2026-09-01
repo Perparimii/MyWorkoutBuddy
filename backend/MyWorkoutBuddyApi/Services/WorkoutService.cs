@@ -2,6 +2,7 @@
 using MyWorkoutBuddyApi.Data;
 using MyWorkoutBuddyApi.Models.DTOs;
 using MyWorkoutBuddyApi.Models.Entities;
+using System.Numerics;
 using System.Security.Claims;
 
 namespace MyWorkoutBuddyApi.Services
@@ -106,6 +107,7 @@ namespace MyWorkoutBuddyApi.Services
             await _context.SaveChangesAsync();
         }
 
+
         
         public async Task<WorkoutDto?> GetWorkoutByIdAsync(int id)
         {
@@ -120,6 +122,50 @@ namespace MyWorkoutBuddyApi.Services
                 ExerciseNumber = workout.ExerciseNumber,
                 PlanId = workout.WorkoutPlanId
             };
+        }
+
+
+        public async Task<TodaysWorkoutDto?> GetTodaysWorkout(ClaimsPrincipal user)
+        {
+            var userIdClaim = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (userIdClaim == null)
+            {
+                throw new Exception("User not authenticated");
+            }
+
+            var userId = int.Parse(userIdClaim);
+
+            var dbUser = await _context.Users
+                .FirstOrDefaultAsync(u => u.Id == userId);
+
+            int dayValue = (int)DateTime.Today.DayOfWeek;
+
+            var workoutExercises = await _context.Workouts
+                .Include(w => w.Exercises)
+                .FirstOrDefaultAsync(w => w.WorkoutPlanId == dbUser.PlanId 
+                            && (int)w.DayOfWeek == dayValue);
+
+            if(workoutExercises == null)
+            {
+                return null;
+            }
+
+            return new TodaysWorkoutDto
+            {
+                WorkoutName = workoutExercises.Name,
+                DayOfWeek = DateTime.Today.DayOfWeek,
+                Exercises = workoutExercises.Exercises.Select(e => new ExerciseDto
+                {
+                    Name = e.Name,
+                    WarmupSets = e.WarmupSets,
+                    WorkingSets = e.WorkingSets,
+                    MinReps = e.MinReps,
+                    MaxReps = e.MaxReps
+                }).ToList()
+            };
+            
+
         }
 
 
