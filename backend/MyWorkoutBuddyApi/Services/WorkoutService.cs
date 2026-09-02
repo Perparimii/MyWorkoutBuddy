@@ -86,13 +86,16 @@ namespace MyWorkoutBuddyApi.Services
         }
 
 
-        public async Task AddExercisesToWorkoutAsync(int workoutId, List<int> exerciseIds)
+        public async Task<bool> AddExercisesToWorkoutAsync(int workoutId, List<int> exerciseIds)
         {
             var workout = await _context.Workouts
                 .Include(w => w.Exercises)
                 .FirstOrDefaultAsync(w => w.Id == workoutId);
 
-            if (workout == null) return;
+            if (workout == null)
+            {
+                return false;
+            }
 
 
             var exercises = await _context.Exercises
@@ -105,6 +108,8 @@ namespace MyWorkoutBuddyApi.Services
             }
 
             await _context.SaveChangesAsync();
+
+            return true;
         }
 
         

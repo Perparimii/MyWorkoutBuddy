@@ -67,6 +67,20 @@ namespace MyWorkoutBuddyApi.Controllers
         }
 
 
+        [HttpPost]
+        public async Task<ActionResult> AddExercisesToWorkout(int workoutId, List<int> exerciseIds)
+        {
+            var serviceMethod = await _workoutService.AddExercisesToWorkoutAsync(workoutId, exerciseIds);
+
+            if(serviceMethod == false)
+            {
+                return BadRequest("Something went wrong");
+            }
+
+            return NoContent();
+        }
+
+
         [HttpGet]
         public async Task<ActionResult<TodaysWorkoutDto>> GetTodaysWorkout()
         {   
