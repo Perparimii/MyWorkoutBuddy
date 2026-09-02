@@ -107,7 +107,6 @@ namespace MyWorkoutBuddyApi.Services
             await _context.SaveChangesAsync();
         }
 
-
         
         public async Task<WorkoutDto?> GetWorkoutByIdAsync(int id)
         {
@@ -125,7 +124,7 @@ namespace MyWorkoutBuddyApi.Services
         }
 
 
-        public async Task<TodaysWorkoutDto?> GetTodaysWorkout(ClaimsPrincipal user)
+        public async Task<TodaysWorkoutDto?> GetTodaysWorkoutAsync(ClaimsPrincipal user)
         {
             var userIdClaim = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 

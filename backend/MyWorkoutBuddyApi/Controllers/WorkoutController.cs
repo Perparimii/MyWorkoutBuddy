@@ -66,6 +66,21 @@ namespace MyWorkoutBuddyApi.Controllers
             return Ok(workout);
         }
 
+
+        [HttpGet]
+        public async Task<ActionResult<TodaysWorkoutDto>> GetTodaysWorkout()
+        {   
+            var todaysWorkout = await _workoutService.GetTodaysWorkoutAsync(User);
+
+            if(todaysWorkout == null)
+            {
+                return NotFound("If you have a Plan selected and you are not seeing anything it means today is a rest day!");
+            }
+
+            return Ok(todaysWorkout);
+        }
+
+
         [Authorize(Roles = "Admin")]
         [HttpPut]
         public async Task<ActionResult<WorkoutDto>> UpdateWorkout(int id, WorkoutDto updatedWorkout)

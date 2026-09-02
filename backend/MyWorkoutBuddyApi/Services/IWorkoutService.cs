@@ -9,7 +9,7 @@ namespace MyWorkoutBuddyApi.Services
         Task<Workout?> CreateWorkoutAsync(WorkoutDto newWorkout);
         Task AddExercisesToWorkoutAsync(int workoutId, List<int> exerciseIds);
         Task<IEnumerable<WorkoutDto?>> GetWorkoutsAsync(ClaimsPrincipal user);
-        Task<TodaysWorkoutDto?> GetTodaysWorkout(ClaimsPrincipal user);
+        Task<TodaysWorkoutDto?> GetTodaysWorkoutAsync(ClaimsPrincipal user);
         Task<WorkoutDto?> GetWorkoutByIdAsync(int id);
         Task<WorkoutDto?> UpdateWorkoutAsync(int id, WorkoutDto updatedWorkout);
         Task<bool> DeleteWorkoutAsync(int id);
