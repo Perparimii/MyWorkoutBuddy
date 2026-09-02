@@ -67,8 +67,8 @@ namespace MyWorkoutBuddyApi.Controllers
         }
 
 
-        [HttpPost]
-        public async Task<ActionResult> AddExercisesToWorkout(int workoutId, List<int> exerciseIds)
+        [HttpPost("{workoutId}/exercises/{exerciseId}")]
+        public async Task<ActionResult> AddExercisesToWorkout([FromRoute]int workoutId, [FromBody]List<int> exerciseIds)
         {
             var serviceMethod = await _workoutService.AddExercisesToWorkoutAsync(workoutId, exerciseIds);
 
@@ -81,7 +81,7 @@ namespace MyWorkoutBuddyApi.Controllers
         }
 
 
-        [HttpGet]
+        [HttpGet("/todaysworkout")]
         public async Task<ActionResult<TodaysWorkoutDto>> GetTodaysWorkout()
         {   
             var todaysWorkout = await _workoutService.GetTodaysWorkoutAsync(User);
