@@ -41,8 +41,6 @@ const selectPlan = async (planId: number)=>{
     if(response.ok){
         navigate("/dashboard");
     }
-
-    console.log(planId);
 }
 
 
@@ -77,7 +75,6 @@ useEffect(()=> {
 
     getUser();
 
-        
     }, []);
 
     console.log(user);
