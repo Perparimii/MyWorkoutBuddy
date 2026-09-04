@@ -15,6 +15,7 @@ function TodaysWorkout(){
     }
 
     interface TodaysWorkout{
+        id: number,
         WorkoutName: string;
         DayOfWeek: number,
         Exercises: Exercise[]
@@ -40,30 +41,43 @@ function TodaysWorkout(){
     }, []);
 
 
-return(
-    <main className="mmin-h-screen grid grid-cols-[250px_1fr]">
-        <section className="flex items-center justify-center">
-            <div>
-                <DashboardSidebar></DashboardSidebar>
-            </div>
+return (
+    <main className="min-h-screen grid grid-cols-[250px_1fr]">
+
+        {/* Sidebar */}
+        <section>
+            <DashboardSidebar />
         </section>
 
-        <section className="flex flex-col items-center justify-center w-full">
-            <div className="w-full max-w-4xl mx-auto px-6 space-y-4">
-                {todaysWorkout.map((TodaysWorkout) => (
-                    <Item className="border border-blue-200 rounded-md hover:bg-blue-50 hover:border-blue-300">
-                    <ItemContent>
-                        <ItemTitle>{TodaysWorkout.Exercises.}</ItemTitle>
-                        <ItemDescription>{TodaysWorkout.WorkoutName}</ItemDescription>
-                        <ItemFooter>Format: {TodaysWorkout.DayOfWeek}</ItemFooter>
-                    </ItemContent>
-                </Item>
-                ))}
-            </div>
+        {/* Today's Workout */}
+        <section className="p-8">
+            {todaysWorkout.map((workout) => (
+                <div key={workout.id} className="w-full">
+
+                    {/* Header */}
+                    <div className="flex justify-between items-center">
+                        <h2 className="text-lg font-medium">
+                            {workout.DayOfWeek}
+                        </h2>
+
+                        <h1 className="text-4xl font-bold">
+                            {workout.WorkoutName}
+                        </h1>
+                    </div>
+
+                    {/* Exercises */}
+                    <h2 className="text-xl font-semibold mt-10 mb-4">
+                        Exercises
+                    </h2>
+
+                    {/* Exercise cards will go here */}
+
+                </div>
+            ))}
         </section>
+
     </main>
 );
-
 }
 
 export default TodaysWorkout;

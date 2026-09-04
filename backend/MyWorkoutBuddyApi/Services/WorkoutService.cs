@@ -157,10 +157,12 @@ namespace MyWorkoutBuddyApi.Services
 
             return new TodaysWorkoutDto
             {
+                Id = workoutExercises.Id,
                 WorkoutName = workoutExercises.Name,
                 DayOfWeek = DateTime.Today.DayOfWeek,
                 Exercises = workoutExercises.Exercises.Select(e => new ExerciseDto
                 {
+                    
                     Name = e.Name,
                     WarmupSets = e.WarmupSets,
                     WorkingSets = e.WorkingSets,
