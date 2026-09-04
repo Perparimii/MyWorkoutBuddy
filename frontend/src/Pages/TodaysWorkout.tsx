@@ -22,23 +22,37 @@ function TodaysWorkout(){
     }   
 
 
-    const[todaysWorkout, setTodaysWorkout] = useState<TodaysWorkout[]>([]);
+    const[todaysWorkout, setTodaysWorkout] = useState<TodaysWorkout[] | null>([]);
 
 
-    useEffect(() =>{
-        const getTodaysWorkout = async ()=> {
+    useEffect(() => {
+    const fetchTodaysWorkout = async () => {
+        try {
+            const response = await fetch(`https://localhost:7027/api/Workouts/todaysworkout`,{
+        method: "GET",
+        headers: {
+            "Authorization": `Bearer ${localStorage.getItem("token")}`
+        }});
 
-        const response = await fetch("https://localhost:7027/api/Workouts/todaysworkout");
+            if (response.status === 404) {
+                setTodaysWorkout(null);
+                return;
+            }
 
-        const data = await response.json();
+            if (!response.ok) {
+                throw new Error("Failed to fetch today's workout");
+            }
 
-        console.log(data);
+            const data = await response.json();
+            setTodaysWorkout(data);
 
-        setTodaysWorkout(data);
-
+        } catch (error) {
+            console.error(error);
+        }
     };
-    getTodaysWorkout();
-    }, []);
+
+    fetchTodaysWorkout();
+}, []);
 
 
 return (
