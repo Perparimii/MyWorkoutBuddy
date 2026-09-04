@@ -44,17 +44,29 @@ function TodaysWorkout(){
 return (
     <main className="min-h-screen grid grid-cols-[250px_1fr]">
 
-        {/* Sidebar */}
         <section>
             <DashboardSidebar />
         </section>
-
-        {/* Today's Workout */}
+       
         <section className="p-8">
-            {todaysWorkout.map((workout) => (
+
+
+            {todaysWorkout === null ? (
+                <div>
+                    <h1 className="text-4xl font-bold">
+                        Rest Day 😴
+                    </h1>
+
+                    <p className="text-muted-foreground mt-2">
+                        No workout scheduled for today. Take some time to
+                        recover and come back stronger tomorrow!
+                    </p>
+                </div>
+            ) : (
+            todaysWorkout.map((workout) => (
                 <div key={workout.id} className="w-full">
 
-                    {/* Header */}
+                    
                     <div className="flex justify-between items-center">
                         <h2 className="text-lg font-medium">
                             {workout.DayOfWeek}
@@ -64,16 +76,14 @@ return (
                             {workout.WorkoutName}
                         </h1>
                     </div>
-
-                    {/* Exercises */}
+  
                     <h2 className="text-xl font-semibold mt-10 mb-4">
                         Exercises
                     </h2>
 
-                    {/* Exercise cards will go here */}
-
                 </div>
-            ))}
+            ))
+        )}
         </section>
 
     </main>
