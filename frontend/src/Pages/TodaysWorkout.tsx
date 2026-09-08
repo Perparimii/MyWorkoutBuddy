@@ -22,16 +22,15 @@ function TodaysWorkout(){
     }   
 
 
-    const[todaysWorkout, setTodaysWorkout] = useState<TodaysWorkout[] | null>([]);
+    const[todaysWorkout, setTodaysWorkout] = useState<TodaysWorkout | null>(null);
 
 
     useEffect(() => {
     const fetchTodaysWorkout = async () => {
         try {
             const response = await fetch(`https://localhost:7027/api/Workouts/todaysworkout`,{
-        method: "GET",
-        headers: {
-            "Authorization": `Bearer ${localStorage.getItem("token")}`
+                            method: "GET",
+                            headers: {"Authorization": `Bearer ${localStorage.getItem("token")}`
         }});
 
             if (response.status === 404) {
@@ -45,6 +44,8 @@ function TodaysWorkout(){
 
             const data = await response.json();
             setTodaysWorkout(data);
+
+            console.log(data);
 
         } catch (error) {
             console.error(error);
@@ -63,6 +64,7 @@ return (
         </section>
        
         <section className="p-8">
+            <div className="max-w-6xl mx-auto">
 
 
             {todaysWorkout === null ? (
@@ -77,27 +79,36 @@ return (
                     </p>
                 </div>
             ) : (
-            todaysWorkout.map((workout) => (
-                <div key={workout.id} className="w-full">
+            
+                <div className="w-full">
 
                     
                     <div className="flex justify-between items-center">
-                        <h2 className="text-lg font-medium">
-                            {workout.DayOfWeek}
-                        </h2>
+                         <h2 className="text-lg font-medium">{todaysWorkout.DayOfWeek}</h2>
 
-                        <h1 className="text-4xl font-bold">
-                            {workout.WorkoutName}
-                        </h1>
+                        <h1 className="text-5xl font-bold">{todaysWorkout.WorkoutName}</h1>
                     </div>
-  
-                    <h2 className="text-xl font-semibold mt-10 mb-4">
-                        Exercises
-                    </h2>
+
+                    <div className="mt-6 space-y-3">
+                        {todaysWorkout.Exercises.map((exercise) => (
+                             <Item>
+                                <ItemContent>
+                                <ItemTitle>{exercise.name}</ItemTitle>
+                                    <ItemDescription>
+                                        {exercise.WarmupSets} warmup sets ·{" "}
+                                        {exercise.WorkingSets} working sets ·{" "}
+                                        {exercise.MinReps}-{exercise.MaxReps} reps
+                                    </ItemDescription>
+                                 </ItemContent>
+                             </Item>
+                        ))}
+                    </div>
 
                 </div>
-            ))
+            
         )}
+
+            </div>
         </section>
 
     </main>
