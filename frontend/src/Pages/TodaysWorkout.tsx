@@ -28,13 +28,13 @@ function TodaysWorkout(){
     useEffect(() => {
     const fetchTodaysWorkout = async () => {
         try {
-            const response = await fetch(`https://localhost:7027/api/Workouts/todaysworkout`,{
+            const response = await fetch(`https://localhost:7027/api/Workout/todaysworkout`,{
                             method: "GET",
                             headers: {"Authorization": `Bearer ${localStorage.getItem("token")}`
         }});
 
             if (response.status === 404) {
-                setTodaysWorkout(null);
+               setTodaysWorkout(null);
                 return;
             }
 

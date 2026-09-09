@@ -52,8 +52,6 @@ useEffect(()=> {
 
         const data = await response.json();
 
-        console.log(data);
-
         setPlans(data);
 
     };
@@ -76,8 +74,6 @@ useEffect(()=> {
     getUser();
 
     }, []);
-
-    console.log(user);
 
 return(
 
