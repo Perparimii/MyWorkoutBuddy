@@ -94,14 +94,14 @@ return (
 
                     
                     <div className="flex justify-between items-center">
-                         <h2 className="text-3xl font-bold">{days[todaysWorkout.dayOfWeek]}</h2>
+                         <h1 className="text-3xl font-bold border border-blue-200 rounded-md hover:bg-blue-50 hover:border-blue-300">{days[todaysWorkout.dayOfWeek]}</h1>
 
-                        <h1 className="text-3xl font-bold">{todaysWorkout.workoutName}</h1>
+                        <h1 className="text-2xl font-bold border border-blue-200 rounded-md hover:bg-blue-50 hover:border-blue-300">{todaysWorkout.workoutName}</h1>
                     </div>
 
                     <div className="mt-6 space-y-3">
                         {todaysWorkout.exercises.map((Exercise) => (
-                             <Item key={todaysWorkout.id}>
+                             <Item key={todaysWorkout.id} className="border border-blue-200 rounded-md hover:bg-blue-50 hover:border-blue-300">
                                 <ItemContent>
                                 <ItemTitle>{Exercise.name}</ItemTitle>
                                     <ItemDescription>
