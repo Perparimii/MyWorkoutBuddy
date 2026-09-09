@@ -8,21 +8,31 @@ function TodaysWorkout(){
     
     interface Exercise {
     name: string;
-    WarmupSets: number;
-    WorkingSets: number;
-    MinReps: number;
-    MaxReps: number;
+    warmupSets: number;
+    workingSets: number;
+    minReps: number;
+    maxReps: number;
     }
 
     interface TodaysWorkout{
         id: number,
-        WorkoutName: string;
-        DayOfWeek: number,
-        Exercises: Exercise[]
+        workoutName: string;
+        dayOfWeek: number,
+        exercises: Exercise[]
     }   
 
 
     const[todaysWorkout, setTodaysWorkout] = useState<TodaysWorkout | null>(null);
+
+    const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+];
 
 
     useEffect(() => {
@@ -84,20 +94,20 @@ return (
 
                     
                     <div className="flex justify-between items-center">
-                         <h2 className="text-lg font-medium">{todaysWorkout.DayOfWeek}</h2>
+                         <h2 className="text-3xl font-bold">{days[todaysWorkout.dayOfWeek]}</h2>
 
-                        <h1 className="text-5xl font-bold">{todaysWorkout.WorkoutName}</h1>
+                        <h1 className="text-3xl font-bold">{todaysWorkout.workoutName}</h1>
                     </div>
 
                     <div className="mt-6 space-y-3">
-                        {todaysWorkout.Exercises.map((exercise) => (
-                             <Item>
+                        {todaysWorkout.exercises.map((Exercise) => (
+                             <Item key={todaysWorkout.id}>
                                 <ItemContent>
-                                <ItemTitle>{exercise.name}</ItemTitle>
+                                <ItemTitle>{Exercise.name}</ItemTitle>
                                     <ItemDescription>
-                                        {exercise.WarmupSets} warmup sets ·{" "}
-                                        {exercise.WorkingSets} working sets ·{" "}
-                                        {exercise.MinReps}-{exercise.MaxReps} reps
+                                        {Exercise.warmupSets} warmup sets ·{" "}
+                                        {Exercise.workingSets} working sets ·{" "}
+                                        {Exercise.minReps}-{Exercise.maxReps} reps
                                     </ItemDescription>
                                  </ItemContent>
                              </Item>

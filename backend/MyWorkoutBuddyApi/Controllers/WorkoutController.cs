@@ -53,7 +53,7 @@ namespace MyWorkoutBuddyApi.Controllers
         }
 
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<ActionResult<WorkoutDto>> GetWorkoutByID(int id)
         {
             var workout = await _workoutService.GetWorkoutByIdAsync(id);
@@ -81,7 +81,7 @@ namespace MyWorkoutBuddyApi.Controllers
         }
 
 
-        [HttpGet("/todaysworkout")]
+        [HttpGet("todaysworkout")]
         public async Task<ActionResult<TodaysWorkoutDto>> GetTodaysWorkout()
         {   
             var todaysWorkout = await _workoutService.GetTodaysWorkoutAsync(User);
