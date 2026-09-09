@@ -93,15 +93,15 @@ return (
                 <div className="w-full">
 
                     
-                    <div className="flex justify-between items-center">
+                    <div className="flex justify-between items-center w-full max-w-4xl mx-auto px-6 space-y-4">
                          <h1 className="text-3xl font-bold border border-blue-200 rounded-md hover:bg-blue-50 hover:border-blue-300">{days[todaysWorkout.dayOfWeek]}</h1>
 
                         <h1 className="text-2xl font-bold border border-blue-200 rounded-md hover:bg-blue-50 hover:border-blue-300">{todaysWorkout.workoutName}</h1>
                     </div>
 
-                    <div className="mt-6 space-y-3">
+                    <div className="flex flex-col items-center justify-center w-full w-full max-w-4xl mx-auto px-6 space-y-4">
                         {todaysWorkout.exercises.map((Exercise) => (
-                             <Item key={todaysWorkout.id} className="border border-blue-200 rounded-md hover:bg-blue-50 hover:border-blue-300">
+                             <Item key={todaysWorkout.id} className="bg-blue-100 border border-blue-200 rounded-md hover:bg-blue-50 hover:border-blue-300">
                                 <ItemContent>
                                 <ItemTitle>{Exercise.name}</ItemTitle>
                                     <ItemDescription>
