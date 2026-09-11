@@ -85,9 +85,9 @@ return(
         </section>
 
         <section className="flex flex-col items-center justify-center w-full">
-            <div className="w-full max-w-4xl mx-auto px-6 space-y-4">
+            <div className="w-full max-w-4xl mx-auto px-6 space-y-4 " >
                 {plans.map((Plan) => (
-                    <Item key={Plan.id} className="border border-blue-200 rounded-md hover:bg-blue-50 hover:border-blue-300">
+                    <Item key={Plan.id} className="border border-blue-200 rounded-md hover:bg-primary/50 hover:border-blue-300 " >
                     <ItemContent>
                         <ItemTitle>{Plan.name}</ItemTitle>
                         <ItemDescription>{Plan.description}</ItemDescription>
@@ -96,7 +96,7 @@ return(
                     <ItemActions>
                         <Button onClick={() => selectPlan(Plan.id)} 
                         className={
-                        user?.planId === Plan.id ? "bg-green-600 text-white hover:bg-green-700": "bg-blue-600 text-white hover:bg-blue-700"} >{user?.planId === Plan.id ? "Selected" : "Select"}</Button>
+                        user?.planId === Plan.id ? "bg-primary/20 text-white hover:bg-green-700": "bg-primary/70 text-white hover:bg-blue-700"} >{user?.planId === Plan.id ? "Selected" : "Select"}</Button>
                     </ItemActions>
                 </Item>
                 ))}
