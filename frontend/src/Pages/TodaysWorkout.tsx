@@ -73,8 +73,8 @@ return (
             <DashboardSidebar />
         </section>
        
-        <section className="p-8">
-            <div className="max-w-6xl mx-auto">
+        <section className="min-h-screen bg-background px-8 py-10">
+            <div className="mx-auto w-full max-w-6xl">
 
 
             {todaysWorkout === null ? (
@@ -93,13 +93,20 @@ return (
                 <div className="w-full">
 
                     
-                    <div className="flex justify-between items-center w-full max-w-4xl mx-auto px-6 space-y-4">
-                         <h1 className="text-3xl font-bold border border-blue-200 rounded-md hover:bg-blue-50 hover:border-blue-300">{days[todaysWorkout.dayOfWeek]}</h1>
+                    <div className="flex items-center justify-between w-full max-w-4xl mx-auto mb-10">
+                         <div>
+                             <p className="text-sm text-muted-foreground mb-2">{days[todaysWorkout.dayOfWeek]}</p>
 
-                        <h1 className="text-2xl font-bold border border-blue-200 rounded-md hover:bg-blue-50 hover:border-blue-300">{todaysWorkout.workoutName}</h1>
-                    </div>
+                             <h1 className="text-4xl font-bold tracking-tight">{todaysWorkout.workoutName}</h1>
+                        </div>
+
+                    <div className="rounded-lg border border-border bg-card px-4 py-2">
+                        <span className="text-sm text-muted-foreground">Today's Workout</span>
+                     </div>
+                </div>
 
                     <div className="flex flex-col items-center justify-center w-full w-full max-w-4xl mx-auto px-6 space-y-4">
+                        <h2 className="text-xl font-semibold mb-4">Exercises</h2>
                         {todaysWorkout.exercises.map((Exercise) => (
                              <Item key={todaysWorkout.id} className="bg-blue-100 border border-blue-200 rounded-md hover:bg-blue-50 hover:border-blue-300">
                                 <ItemContent>
