@@ -67,9 +67,9 @@ function TodaysWorkout(){
 
 
 return (
-    <main className="min-h-screen grid grid-cols-[250px_1fr]">
+    <main className="min-h-screen grid grid-cols-[250px_1fr] bg-background">
 
-        <section>
+        <section className="border-r border-border">
             <DashboardSidebar />
         </section>
        
@@ -78,44 +78,81 @@ return (
 
 
             {todaysWorkout === null ? (
-                <div>
-                    <h1 className="text-4xl font-bold">
-                        Rest Day 😴
-                    </h1>
+                <div className="flex min-h-[70vh] items-center justify-center">
 
-                    <p className="text-muted-foreground mt-2">
-                        No workout scheduled for today. Take some time to
-                        recover and come back stronger tomorrow!
-                    </p>
-                </div>
-            ) : (
-            
-                <div className="w-full">
+                     <div className="text-center max-w-md">
 
-                    
-                    <div className="flex items-center justify-between w-full max-w-4xl mx-auto mb-10">
-                         <div>
-                             <p className="text-sm text-muted-foreground mb-2">{days[todaysWorkout.dayOfWeek]}</p>
-
-                             <h1 className="text-4xl font-bold tracking-tight">{todaysWorkout.workoutName}</h1>
+                        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/15 text-3xl">
+                            😴 
                         </div>
 
-                    <div className="rounded-lg border border-border bg-card px-4 py-2">
-                        <span className="text-sm text-muted-foreground">Today's Workout</span>
-                     </div>
+                        <h1 className="text-4xl font-bold tracking-tight">
+                             Rest Day
+                        </h1>
+
+                        <p className="text-muted-foreground mt-3 leading-6">
+                            No workout is scheduled for today.
+                            Take some time to recover and come back
+                            stronger tomorrow.
+                        </p>
+
                 </div>
 
-                    <div className="flex flex-col items-center justify-center w-full w-full max-w-4xl mx-auto px-6 space-y-4">
-                        <h2 className="text-xl font-semibold mb-4">Exercises</h2>
+            </div>
+            
+            ) : (
+            
+                <div className="mb-10">
+
+                    <div className="flex items-center justify-between">
+
+                         <div>
+                             <p className="text-sm font-medium text-primary mb-2">{days[todaysWorkout.dayOfWeek]}</p>
+
+                             <h1 className="text-4xl font-bold tracking-tight">{todaysWorkout.workoutName}</h1>
+
+                             <p className="text-muted-foreground mt-2">Here's what you have planned for today's workout.</p>
+                        </div>
+
+                        <div className="rounded-xl border border-border bg-card px-5 py-4">
+                           <p className="text-xs uppercase tracking-wider text-muted-foreground">Today's Workout</p>
+
+                           <p className="text-sm font-semibold mt-1">{todaysWorkout.exercises.length} Exercises </p>
+                        </div>
+
+                    </div>
+
+                    <div className="mb-5">
+                        <h2 className="text-xl font-semibold">Exercises</h2>
+                        <p className="text-sm text-muted-foreground mt-1">Complete each exercise according to your plan.</p>
+                    </div>
+
+                    <div className="flex flex-col gap-3">
                         {todaysWorkout.exercises.map((Exercise) => (
-                             <Item key={todaysWorkout.id} className="bg-blue-100 border border-blue-200 rounded-md hover:bg-blue-50 hover:border-blue-300">
+                             <Item key={Exercise.name} className="rounded-xl border border-border border-l-2 border-l-primary/60 bg-card px-5 py-5 transition-all hover:border-primary/40 hover:bg-accent">
                                 <ItemContent>
-                                <ItemTitle>{Exercise.name}</ItemTitle>
-                                    <ItemDescription>
-                                        {Exercise.warmupSets} warmup sets ·{" "}
-                                        {Exercise.workingSets} working sets ·{" "}
-                                        {Exercise.minReps}-{Exercise.maxReps} reps
-                                    </ItemDescription>
+                                <ItemTitle className="text-base font-semibold">{Exercise.name}</ItemTitle>
+                                    
+                                    <div className="flex items-center gap-3 mt-3">
+                                        
+                                        <div className="rounded-lg bg-secondary px-3 py-2">
+                                            <p className="text-xs text-muted-foreground">Warmup</p>
+                                            <p className="text-sm font-semibold">{Exercise.warmupSets} sets</p>
+                                        </div>
+
+                                        <div className="rounded-lg bg-secondary px-3 py-2">
+                                            <p className="text-xs text-muted-foreground">Working</p>
+                                            <p className="text-sm font-semibold">{Exercise.workingSets} sets</p>
+                                        </div>
+
+                                        <div className="rounded-lg bg-secondary px-3 py-2">
+                                            <p className="text-xs text-muted-foreground">Reps</p>
+
+                                            <p className="text-sm font-semibold">{Exercise.minReps}-{Exercise.maxReps}</p>
+                                        </div>
+
+                                    </div>
+
                                  </ItemContent>
                              </Item>
                         ))}
