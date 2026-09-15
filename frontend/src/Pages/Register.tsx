@@ -9,7 +9,11 @@ function Register(){
     const[username, setUsername]= useState("");
     const[password, setPassword]= useState("");
     const[email, setEmail]= useState("");
+    const [error, setError] = useState("");
     const navigate = useNavigate();
+
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
 
 return (
 
@@ -41,6 +45,21 @@ return (
                     <div className="mt-6 space-y-4">
                       <form className="mt-6 space-y-4" onSubmit={async (e) => {
                          e.preventDefault();
+
+                         if (!username.trim()) {
+                            setError("Username is required.");
+                            return;
+                        }
+
+                        if (!email.trim()) {
+                            setError("Email is required.");
+                            return;
+                        }
+
+                        if(!passwordRegex.test(password)){
+                            setError("Password must contain at least one uppercase letter, one lowercase letter, and one number.");
+                            return;
+                        }
 
                          const response =await fetch("https://localhost:7027/api/Auth/register", {
                             method: "POST",
@@ -85,6 +104,9 @@ return (
                             Create account
                         </Button>
                       </form>
+                        {error && (
+                            <p className="text-sm text-red-500">{error}</p>
+                        )}
                     </div>
 
                 </Card>

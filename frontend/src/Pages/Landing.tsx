@@ -15,8 +15,6 @@ function Landing(){
 return(
     <main className="min-h-screen grid grid-cols-2">
 
-     {/*Left side*/}
-
          <section className="flex items-center justify-center">
                 <div>
                     <h1 className="text-5xl font-bold">
@@ -29,7 +27,6 @@ return(
                 </div>
             </section>
 
-    {/*Right side*/} 
 
         <section className="flex items-center justify-center">
                 <Card className="w-[400px] p-6">
