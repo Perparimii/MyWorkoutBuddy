@@ -9,6 +9,7 @@ function Landing(){
     const[username, setUsername]= useState("");
     const[password, setPassword]= useState("");
     const[email, setEmail]= useState("");
+    const [error, setError] = useState("");
     const navigate = useNavigate();
 
 
@@ -54,7 +55,7 @@ return(
                          });
 
                          if(!response.ok){
-                            console.log("Login failed!");
+                            setError("Invalid credentials!");
                             return;
                          }
 
@@ -92,6 +93,9 @@ return(
                             Log In
                         </Button>
                       </form>
+                      {error && (
+                        <p className="text-sm text-red-500">{error}</p>
+)}
                         <Link to={"/register"} className="text-blue-600 hover:underline">
                         Don't have an account? Click here to register
                         </Link>
