@@ -1,5 +1,5 @@
 import { SidebarProvider, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarHeader, } from "../ui/sidebar";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import {Home,Dumbbell,Calendar,LogOut} from "lucide-react";
 
 
@@ -15,6 +15,10 @@ function DashboardSidebar(){
 
         navigate("/");
     }
+
+    const location = useLocation();
+
+    const isActive = (path: string) => location.pathname === path;
 
     return (
         <SidebarProvider>
@@ -34,8 +38,9 @@ function DashboardSidebar(){
                                 <SidebarMenuItem>
                                     <SidebarMenuButton
                                         onClick={() => navigate("/dashboard")}
-                                        className="h-11 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90"
-                                    >
+                                        className={isActive("/dashboard")
+                                            ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                                            : "text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"}>
                                         <Home />
                                         <span>Dashboard</span>
                                     </SidebarMenuButton>
@@ -44,8 +49,9 @@ function DashboardSidebar(){
                                 <SidebarMenuItem>
                                     <SidebarMenuButton
                                         onClick={() => navigate("/plans")}
-                                        className="h-11 rounded-lg text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-                                    >
+                                        className={isActive("/plans")
+                                            ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                                            : "text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"}>
                                         <Calendar />
                                         <span>Plans</span>
                                     </SidebarMenuButton>
@@ -54,8 +60,9 @@ function DashboardSidebar(){
                                 <SidebarMenuItem>
                                     <SidebarMenuButton
                                         onClick={() => navigate("/myworkouts")}
-                                        className="h-11 rounded-lg text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-                                    >
+                                        className={isActive("/myworkouts")
+                                            ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                                            : "text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"}>
                                         <Dumbbell />
                                         <span>My Workouts</span>
                                     </SidebarMenuButton>
@@ -64,8 +71,9 @@ function DashboardSidebar(){
                                 <SidebarMenuItem>
                                     <SidebarMenuButton
                                         onClick={() => navigate("/todaysworkout")}
-                                        className="h-11 rounded-lg text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-                                    >
+                                        className={isActive("/todaysworkout")
+                                            ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                                            : "text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"}>
                                         <Dumbbell />
                                         <span>Today's Workout</span>
                                     </SidebarMenuButton>
