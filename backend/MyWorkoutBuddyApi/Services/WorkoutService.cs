@@ -57,7 +57,7 @@ namespace MyWorkoutBuddyApi.Services
                         ExerciseNumber = w.ExerciseNumber,
                         PlanId = w.WorkoutPlanId
 
-                    }).ToListAsync();
+                    }).OrderBy(w => w.DayOfWeek).ToListAsync();
             }
 
             var userId = int.Parse(userIdClaim);
