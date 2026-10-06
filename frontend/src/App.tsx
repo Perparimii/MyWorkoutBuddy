@@ -11,6 +11,7 @@ import MyWorkouts from "./Pages/MyWorkouts";
 import Plans from "./Pages/Plans";
 import Register from "./Pages/Register";
 import TodaysWorkout from "./Pages/TodaysWorkout";
+import RouteWrapper from "./components/customComponents/routeWrapper";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
   return(
 
   <BrowserRouter>
+  <RouteWrapper>
     <Routes>
       <Route path="/" element={<Landing/>}/>
       <Route path="/register" element={<Register/>}/>
@@ -27,6 +29,7 @@ function App() {
       <Route path="/plans" element={<ProtectedRoute><Plans/></ProtectedRoute>}/>
       <Route path="/todaysworkout" element={<ProtectedRoute><TodaysWorkout/></ProtectedRoute>}/>
     </Routes>
+    </RouteWrapper>
   </BrowserRouter>
   );
   
