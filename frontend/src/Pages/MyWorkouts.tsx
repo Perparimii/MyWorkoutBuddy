@@ -32,26 +32,77 @@ useEffect(() => {
 } ,[])
 
 
-return(
-    <main className="mmin-h-screen grid grid-cols-[250px_1fr]">
-        <section className="flex items-center justify-center">
-            <div>
-                <DashboardSidebar></DashboardSidebar>
-            </div>
+return (
+    <main className="min-h-screen grid grid-cols-[250px_1fr] bg-background">
+
+        {/* Sidebar */}
+        <section className="border-r border-border">
+            <DashboardSidebar />
         </section>
 
-        <section className="flex flex-col items-center justify-center w-full">
-            <div  className="w-full max-w-4xl mx-auto px-6 space-y-4">
-                {workouts.map((Workout) =>(
-                    <Item className="border border-blue-200 rounded-md hover:bg-blue-50 hover:border-blue-300">
-                        <ItemContent>
-                            <ItemTitle>{Workout.name}</ItemTitle>
-                            <ItemDescription>
-                                Day: {Workout.dayOfWeek} {" "} Exercise number: {Workout.exerciseNumber}
-                            </ItemDescription>
-                        </ItemContent>
-                    </Item>
-                ))}
+        {/* Main content */}
+        <section className="min-h-screen bg-background px-8 py-10">
+            <div className="mx-auto w-full max-w-5xl">
+
+                {/* Header */}
+                <div className="mb-10">
+                    <p className="text-sm font-medium text-primary mb-2">
+                        MY WORKOUTS
+                    </p>
+
+                    <h1 className="text-4xl font-bold tracking-tight">
+                        Your Workouts
+                    </h1>
+
+                    <p className="text-muted-foreground mt-2 max-w-xl">
+                        View the workouts included in your current workout plan.
+                    </p>
+                </div>
+
+                {/* Workouts */}
+                <div className="flex flex-col gap-4">
+                    {workouts.map((Workout) => (
+                        <Item
+                            key={Workout.name}
+                            className="rounded-xl border border-border border-l-2 border-l-primary/60 bg-card p-6 transition-all hover:border-primary/40 hover:bg-accent"
+                        >
+                            <ItemContent>
+
+                                <ItemTitle className="text-lg font-semibold">
+                                    {Workout.name}
+                                </ItemTitle>
+
+                                <ItemDescription className="mt-3">
+                                    <span className="text-muted-foreground">
+                                        Day
+                                    </span>
+
+                                    <span className="mx-2 text-border">
+                                        •
+                                    </span>
+
+                                    <span className="text-foreground">
+                                        {Workout.dayOfWeek}
+                                    </span>
+
+                                    <span className="mx-3 text-border">
+                                        •
+                                    </span>
+
+                                    <span className="text-muted-foreground">
+                                        Exercises
+                                    </span>
+
+                                    <span className="ml-2 text-foreground">
+                                        {Workout.exerciseNumber}
+                                    </span>
+                                </ItemDescription>
+
+                            </ItemContent>
+                        </Item>
+                    ))}
+                </div>
+
             </div>
         </section>
 
